@@ -34,6 +34,22 @@
 @media(max-width:1100px){.plan-overview{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:740px){.plan-overview{grid-template-columns:repeat(2,minmax(0,1fr))}.milestone-wrap{padding:13px}.milestone-row{gap:10px}}
 .mobile-nav{display:none}.toast{position:fixed;right:20px;bottom:20px;background:#345041;border:1px solid #699078;color:#f4fff7;border-radius:10px;padding:13px 18px;box-shadow:0 15px 40px #0008;z-index:10}.toast[hidden]{display:none}button:focus-visible,a:focus-visible{outline:2px solid var(--gold);outline-offset:3px}@media(max-width:1100px){.span3{grid-column:span 6}.span4{grid-column:span 6}.span8{grid-column:span 12}}@media(max-width:740px){.layout{display:block}.sidebar{display:none}.mobile-nav{display:flex;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:none;-webkit-overflow-scrolling:touch;position:fixed;z-index:9;bottom:0;left:0;right:0;padding:7px 7px calc(7px + env(safe-area-inset-bottom));background:#101c20f5;border-top:1px solid var(--line);backdrop-filter:blur(18px)}.mobile-nav button{flex:0 0 65px;border:0;background:transparent;color:var(--muted);padding:7px 2px;border-radius:8px;font-size:9px;font-weight:700;display:grid;justify-items:center;gap:2px}.mobile-nav button[aria-current=page]{color:var(--gold);background:#23342d}.mobile-nav span{font-size:20px}.main{padding:18px 15px 105px}.topline{margin-bottom:15px}.hero{padding:23px 19px}.hero h1{font-size:35px}.hero:after{right:-28px;top:-24px;font-size:170px}.grid{gap:11px}.span3,.span4,.span6,.span8,.span12{grid-column:span 12}.statGrid .span3{grid-column:span 6}.statGrid .card{padding:14px}.statGrid .metric{font-size:27px}.section-heading{margin:26px 0 12px}.section-heading h2{font-size:25px}.slots{grid-template-columns:1fr}.talent-row{grid-template-columns:56px minmax(0,1fr);gap:7px}.talent-row .talent-status{grid-column:2}.talent-controls{gap:9px}.talent-controls select{min-width:200px}.info{flex-wrap:wrap}.footer{padding-bottom:10px}.toast{left:15px;right:15px;bottom:94px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+
+/* Etappe 1: sichere, vereinfachte mobile Navigation; keine externen Skripte */
+.guide-more-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:15px}
+.guide-more-grid button{min-height:110px;text-align:left;color:var(--text);background:#19292b;border:1px solid var(--line);border-radius:13px;padding:15px;display:flex;flex-direction:column;align-items:flex-start;gap:5px}
+.guide-more-grid button:hover,.guide-more-grid button:focus-visible{border-color:var(--mint);outline-offset:2px}
+.guide-more-grid button>span{font-size:22px;color:var(--gold);line-height:1.1}
+.guide-more-grid button strong{font-size:14px;line-height:1.35}
+.guide-more-grid button small{color:var(--muted);font-size:12px}
+@media(max-width:740px){
+ .guide-nav{display:none}
+ .mobile-nav{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));overflow:visible;gap:0;justify-items:stretch}
+ .mobile-nav button{min-width:0;min-height:53px;flex:none;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:11px;gap:2px;padding:8px 0}
+ .mobile-nav span{font-size:21px}
+ .main{padding-bottom:calc(108px + env(safe-area-inset-bottom))}
+}
+@media(max-width:385px){.guide-more-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -61,17 +77,27 @@
   <div id="gear" class="section"></div>
   <div id="tools" class="section"></div>
   <div id="books" class="section"></div>
+  <div id="more" class="section">
+    <div class="section-heading"><h2>Mehr</h2><p>Alle weiteren Bereiche deines Guides</p></div>
+    <div class="guide-more-grid" aria-label="Weitere Guide-Bereiche">
+      <button type="button" data-view="professions"><span aria-hidden="true">▥</span><strong>Berufe leveln</strong><small>Rezepte, Materialien und Skillwege</small></button>
+      <button type="button" data-view="gear"><span aria-hidden="true">♜</span><strong>Gear craften</strong><small>Ausrüstung für Solo und Heiler</small></button>
+      <button type="button" data-view="talents"><span aria-hidden="true">✧</span><strong>Talente</strong><small>Einzelne Wrathcat-Punkte abhaken</small></button>
+      <button type="button" data-view="spells"><span aria-hidden="true">✺</span><strong>Zauber &amp; Ränge</strong><small>Erlernte Druidenzauber markieren</small></button>
+      <button type="button" data-view="tools"><span aria-hidden="true">⌘</span><strong>Makros &amp; Controller</strong><small>Makros zum Kopieren</small></button>
+      <button type="button" data-view="books"><span aria-hidden="true">▤</span><strong>Bücher &amp; Sammlung</strong><small>Fundstücke und Bibliothek</small></button>
+    </div>
+    <div class="notice">Deine Häkchen und der gespeicherte Spielstand werden durch diese Navigation nicht verändert.</div>
+  </div>
   <footer class="footer">Stand: 12. November 2026 · Diese Webansicht ist ein <strong>Snapshot</strong> des bestätigten GitHub-Trackers, keine Live-Synchronisation. Neue Spielfortschritte werden wie vereinbart am Ende der Sitzung in beiden GitHub-Repositories gespeichert. Keine lokalen Änderungen werden als Spielstand gespeichert.</footer>
 </main>
 </div>
-<nav class="mobile-nav" aria-label="Mobile Navigation">
-  <button data-view="home" aria-current="page"><span>⌂</span>Start</button>
-  <button data-view="leveling"><span>↗</span>Leveln</button><button data-view="tasks"><span>◇</span>Quests</button><button data-view="dungeons"><span>⚔</span>Dungeons</button>
-  <button data-view="talents"><span>✧</span>Talente</button><button data-view="spells"><span>✺</span>Zauber</button>
-  <button data-view="professions"><span>▥</span>Berufe</button>
-  <button data-view="gear"><span>♜</span>Gear</button>
-  <button data-view="tools"><span>⌘</span>Makros</button>
-  <button data-view="books"><span>▤</span>Bücher</button>
+<nav class="mobile-nav" aria-label="Hauptnavigation">
+  <button data-view="home" aria-current="page"><span aria-hidden="true">⌂</span>Heute</button>
+  <button data-view="leveling"><span aria-hidden="true">↗</span>Leveln</button>
+  <button data-view="tasks"><span aria-hidden="true">◇</span>Quests</button>
+  <button data-view="dungeons"><span aria-hidden="true">⚔</span>Dungeons</button>
+  <button data-view="more"><span aria-hidden="true">☰</span>Mehr</button>
 </nav>
 <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
 <script src="./spellbook.js"></script>
@@ -146,7 +172,7 @@ const DATA={
 const MILESTONES=[{"key":"leveling","title":"Leveln","items":[["level-25","23–25","Stufe 25 erreichen","Bei den aktuellen 20er-Gebieten bleiben; passende Quests statt roter Gegner priorisieren."],["level-28","26–28","Stufe 28 erreichen","Neue Talente, Spells und mögliche Gebiete prüfen."],["level-30","29–30","Stufe 30 erreichen","Ausrüstung und nächstes Gebiet erneut bewerten."],["level-35","31–35","Stufe 35 erreichen","Nächste Berufs-Ausbildung und die kommende Levelphase vorbereiten."]]},{"key":"tasks","title":"Quests","items":[["quests-stonetalon","22–25","Steinkrallengebirge ausprobieren","Horde-Aufgaben und Flugpunkt prüfen; Besuch bisher nicht bestätigt."],["quests-barrens","22–26","Offene Quests im südlichen Brachland sortieren","Mit Kürschnerei verbinden und lange Umwege vermeiden."],["quests-ashenvale","25–29","Passende Eschental-Quests bearbeiten","Nur geeignete Gegner und Aufgaben mitnehmen."],["quests-thousand","27–31","Tausend Nadeln erneut prüfen","Erst zurückkehren, wenn Gegner und Questlevel angenehm sind."],["quests-desolace","30–35","Desolace als neues Questgebiet prüfen","Quests und Flugpunkt nach Bedarf erschließen."]]},{"key":"dungeons","title":"Dungeons","items":[["dung-sfkquests","22–26","Horde-Quests für Burg Schattenfang sammeln","Drei Quests im Dungeontab prüfen; Annahme bislang nicht bestätigt."],["dung-sfk","22–28","Burg Schattenfang mit einer Gruppe spielen","Als Heiler, wenn eine Gruppe zustande kommt."],["dung-bfd","25–31","Tiefschwarze Grotte vorbereiten","Vorbedingungen, Horde-Quests und passende Gruppenstufe prüfen."],["dung-30s","30–35","Passende Folgeinstanz auswählen","Zum Beispiel Kral der Klingenhauer, sofern Level, Zugang und Gruppe passen."]]},{"key":"professions","title":"Berufe","items":[["prof-skinexpert","22–26","Kürschnerei über 150 freischalten","Expertenrang beim Trainer prüfen; letzter belegter Skill 141."],["prof-leather100","22–26","Lederverarbeitung 100 erreichen","Günstige Rezepte für die nächsten 9 Fertigkeitspunkte nutzen."],["prof-aid115","22–28","Erste Hilfe 115 erreichen","Wollverband herstellen, Stoffkosten im Blick behalten."],["prof-leather125","25–30","Lederverarbeitung 125 erreichen","Fertige Gürtel und Bälge bei der Rezeptwahl einplanen."],["prof-skin175","27–33","Kürschnerei 175 erreichen","Mit passenden Wildtieren und Questgebieten verbinden."],["prof-aid150","28–33","Erste Hilfe 150 erreichen","Schweren Wollverband und weitere Ausbildung prüfen."],["prof-leather150","29–35","Lederverarbeitung 150 erreichen","Expertenrang rechtzeitig lernen; weitere Craft-Ideen vorbereiten."],["prof-cook35","35","Kochen: nächsten Ausbildungsrang prüfen","Kochen 225/225 ist bestätigt; auf Stufe 35 die nächste Freischaltung angehen."]]},{"key":"gear","title":"Gear craften","items":[["gear-twochests","22–25","Wunsch-Brustrüstungen vergleichen","Weisheit fürs Heilen und Verteidiger fürs Solo-Leveln – Werte/Materialpreise prüfen."],["gear-upgrade","24–28","Ein sinnvolleres Brustteil ausrüsten","Craften oder AH kaufen, nur wenn es eine Verbesserung ist."],["gear-kit","26–30","Rüstungsset oder anderes kleines Craft prüfen","Herstellbares Zwischenupgrade wählen, wenn Materialkosten passen."],["gear-heal","30–33","Heiler-Ausrüstung aktualisieren","Mana- und Heilwerte für den nächsten Dungeon vergleichen."],["gear-solo","33–35","Solo-Ausrüstung für Stufe 35 überprüfen","Waffe, Brust, Hosen und Handgelenke auf echte Upgrades prüfen."]]}];
 const label={done:'Erledigt / erreicht',confirmed:'Bestätigt',plan:'Geplant',unknown:'Nicht bestätigt'};
 const cssStatus={done:'done',confirmed:'done',plan:'plan',unknown:'unknown'};
-const viewTitle={home:'Übersicht',leveling:'Leveln',tasks:'Quests',dungeons:'Dungeons',talents:'Talentplan',spells:'Zauber & Ränge',professions:'Berufe leveln',gear:'Gear craften',tools:'Makros & Controller',books:'Bücher & Sammlung'};
+const viewTitle={more:'Mehr',home:'Übersicht',leveling:'Leveln',tasks:'Quests',dungeons:'Dungeons',talents:'Talentplan',spells:'Zauber & Ränge',professions:'Berufe leveln',gear:'Gear craften',tools:'Makros & Controller',books:'Bücher & Sammlung'};
 function esc(s){return String(s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
 function tag(s){return '<span class="pill '+cssStatus[s]+'">'+label[s]+'</span>'}
 function heading(t,sub){return '<div class="section-heading"><h2>'+esc(t)+'</h2><p>'+esc(sub||'')+'</p></div>'}
@@ -470,7 +496,7 @@ DATA.books.map(x=>'<div class="rowline"><div class="info"><div><strong>'+esc(x.t
 function navigate(view){
 if(!document.getElementById(view)||!viewTitle[view])return;
 document.querySelectorAll('.section').forEach(x=>x.classList.toggle('active',x.id===view));
-document.querySelectorAll('[data-view]').forEach(x=>{if(x.tagName==='BUTTON' && (x.closest('.nav')||x.closest('.mobile-nav')||x.closest('.guide-nav'))){if(x.dataset.view===view)x.setAttribute('aria-current','page');else x.removeAttribute('aria-current')}});
+document.querySelectorAll('[data-view]').forEach(x=>{if(x.tagName==='BUTTON' && (x.closest('.nav')||x.closest('.mobile-nav')||x.closest('.guide-nav'))){const inMobile=!!x.closest('.mobile-nav');const subView=!['home','leveling','tasks','dungeons','more'].includes(view);const active=x.dataset.view===view||(inMobile&&subView&&x.dataset.view==='more');if(active)x.setAttribute('aria-current','page');else x.removeAttribute('aria-current')}});
 document.title=viewTitle[view]+' · WoW Forever';
 if(location.hash!=='#'+view)history.replaceState(null,'','#'+view);
 window.scrollTo({top:0,behavior:'instant'})
