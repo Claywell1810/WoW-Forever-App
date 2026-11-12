@@ -12,6 +12,7 @@ Dies ist **ausschließlich die öffentliche statische Web-App**. Der ausführlic
 - `index.html` – Dashboard mit eingebetteten Charakterdaten und Makros, Snapshot vom 12.11.2026
 - `sw.js` – Service Worker für Offline-Nutzung
 - `spellbook.js` – offline verfügbare, recherchierte Druidenzauber und einzelne Ränge bis Stufe 60
+- `ux.js`, `ux.css` – mobile Navigation, dynamische Heute-Ansicht, Schnellfilter, Checklisten und Backup
 - `manifest.webmanifest` – Web-App-Metadaten
 - `icon.svg`, `icon-192.png` – App-Symbole
 - `.nojekyll` – statische Bereitstellung ohne Jekyll
@@ -36,3 +37,17 @@ Mit **„Abgehakte Ziele für den Chat kopieren“** auf der Übersicht beziehun
 ### Zauberdaten
 
 `spellbook.js` enthält derzeit **212 mit Leveln versehene Einträge** für den Druiden (**101 bis Stufe 35**). Grundlage ist die levelweise Forever-Datenbank [Druidenzauber mit Rängen](https://wow-forever-talent-calculator.com/druid/spells) mit Abgleich bei [1mw](https://1mw.io/en/classes/druid/talents). Die Datenbanken enthalten voneinander abweichende Zählungen; insbesondere Fähigkeiten **ohne belegte Lernstufe** sowie interne passive Effekte können fehlen. Die Liste ist deshalb **keine Garantie für ein vollständiges aktuelles Lehrermenü**. Klassenquests und Talentfähigkeiten sind gekennzeichnet und werden nicht automatisch als gelernt angenommen.
+
+
+## Bedienung – vereinfachte Version (12.11.2026)
+
+- Unten auf dem iPhone: **Heute, Leveln, Quests, Dungeons, Mehr**. Unter Mehr: Berufe, Gear, Talente, Zauber, Makros, Bücher und Datensicherung.
+- **Heute** zeigt die nächsten offenen Meilensteine, Talente und Zauber. Die **Planungsstufe** (z. B. 27) wird nur lokal gespeichert. Sie ändert **nicht** den bestätigten GitHub-Spielstand (zuletzt Stufe 22).
+- **Etappen bis Stufe 35** stehen am Anfang der Guide-Bereiche; abgehakte Etappen werden in eine aufklappbare Gruppe verschoben.
+- Im **Zauberbuch**: „Letztes Lernlevel“ zeigt den letzten Zauber-Lernschritt bis zur Planungsstufe (auf Stufe 27 also Stufe 26); „Bis Planungsstufe“ zeigt den Rückstand. Zusätzlich kannst du **nicht abgehakte Zauber** und **Lehrer / Klassenquests / Talente** filtern.
+- Ein **Häkchen bedeutet ausdrücklich vom Nutzer markiert**, nicht automatisch aus dem Spiel ausgelesen. Die App liest nicht auf den WoW-Account zu.
+- Unter **Mehr → Feierabend** kopierst du eine textuelle Zusammenfassung für den Chat; anschließend kann der private Tracker nach Absprache aktualisiert werden.
+- Unter **Mehr → Backup** kann der vollständige lokale Häkchenstand als JSON kopiert, als Datei gespeichert oder aus einer Datei bzw. eingefügtem JSON wiederhergestellt werden. **Import ersetzt lokale Häkchen erst nach ausdrücklicher Bestätigung.**
+- Für die Offline-Nutzung muss die App nach einem Update zunächst einmal online geladen worden sein. Ein abweichender Speicherstand zwischen Safari und der zum Home-Bildschirm hinzugefügten Web-App kann vorkommen: Vor einem Wechsel am besten ein JSON-Backup erstellen.
+
+Die Grundfunktionen einschließlich lokalem Planungslevel, Checkbox-Speicherung und Backup-Wiederherstellung wurden automatisiert geprüft. Ein vollständiger iPhone-Fingertest bleibt offen.
