@@ -1,0 +1,26 @@
+{
+  "id": "/WoW-Forever-App/",
+  "name": "WoW Forever Guide",
+  "short_name": "WoW Guide",
+  "description": "Privater WoW-Forever-Charaktertracker für dein iPhone.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0b1216",
+  "theme_color": "#0b1418",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

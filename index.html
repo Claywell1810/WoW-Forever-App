@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b1418">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="WoW Guide">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="icon" type="image/svg+xml" href="./icon.svg">
+<link rel="apple-touch-icon" href="./icon-192.png">
+<meta name="description" content="Persönliches, spoilerarmes WoW Forever Dashboard – Stand aus dem GitHub-Charaktertracker.">
+<title>WoW Forever · Charakter-Dashboard</title>
+<style>
+:root{color-scheme:dark;--bg:#0b1216;--panel:#131e23;--panel2:#18262b;--line:#2b4044;--text:#f0efe9;--muted:#a0b0af;--gold:#e4c78f;--mint:#80c7ad;--blue:#85bce0;--amber:#eab978;--radius:17px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 85% 0%,#23362f 0%,transparent 32%),radial-gradient(ellipse at 0% 75%,#152b2d 0%,transparent 33%),var(--bg);font:15px/1.52 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--text);min-height:100vh}button,input{font:inherit}button{cursor:pointer}a{color:var(--gold)}.layout{display:grid;grid-template-columns:242px minmax(0,1fr);min-height:100vh;max-width:1600px;margin:auto}.sidebar{border-right:1px solid var(--line);background:#0d191de8;padding:27px 16px;position:sticky;top:0;height:100vh;display:flex;flex-direction:column}.brand{display:flex;align-items:center;gap:12px;padding:0 10px 25px}.mark{width:43px;height:43px;border:1px solid #6c806e;border-radius:14px;display:grid;place-items:center;color:var(--gold);background:#22332b;font:30px Georgia,serif}.brand strong{display:block;font:700 18px Georgia,serif;letter-spacing:.4px}.brand small{display:block;font-size:10px;text-transform:uppercase;letter-spacing:2px;color:var(--muted)}.nav{display:flex;flex-direction:column;gap:5px}.nav button{border:0;background:transparent;color:var(--muted);text-align:left;display:flex;align-items:center;gap:11px;border-radius:11px;padding:11px 13px;font-weight:650}.nav button:hover,.nav button[aria-current=page]{background:#22352f;color:var(--text)}.nav .glyph{width:22px;text-align:center;color:var(--gold);font-size:17px}.sidefoot{margin-top:auto;border-top:1px solid var(--line);padding:17px 10px 0;color:var(--muted);font-size:12px}.sidefoot a{display:block;margin-top:8px}.main{padding:35px clamp(18px,4.7vw,72px) 75px;min-width:0}.topline{display:flex;align-items:center;justify-content:space-between;gap:12px;color:var(--muted);font-size:12px;margin-bottom:22px}.dot{display:inline-block;width:7px;height:7px;background:var(--mint);border-radius:50%;margin-right:8px}.button{border:1px solid #567566;background:#263b32;color:var(--text);border-radius:9px;padding:9px 14px;text-decoration:none;display:inline-flex;align-items:center;gap:7px;font-weight:700;font-size:12px;transition:filter .15s}.button:hover{filter:brightness(1.2)}.button.secondary{border-color:var(--line);background:#1a292f;color:var(--gold)}.hero{padding:30px;border-radius:var(--radius);border:1px solid #456050;background:linear-gradient(115deg,#1a352c,#142229 65%,#1d2930);position:relative;overflow:hidden}.hero:after{content:"✦";position:absolute;right:35px;top:-55px;color:#ffffff0a;font:250px Georgia,serif;pointer-events:none}.eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:2.1px;color:var(--gold);font-weight:800}.hero h1{font:500 clamp(31px,4.4vw,55px)/1.12 Georgia,serif;margin:11px 0}.hero p{margin:0;color:#c4d1cc;max-width:660px}.badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}.pill{display:inline-flex;align-items:center;border:1px solid #506b5c;background:#21392f;color:#c8e5d7;border-radius:40px;padding:5px 11px;font-size:12px;font-weight:680}.pill.plan{background:#3a2e21;border-color:#725c3c;color:#f2d49c}.pill.unknown{background:#273338;border-color:#54636a;color:#b4c4ca}.pill.done{background:#1d3c33;border-color:#3f725e;color:#92e0bc}.section-heading{display:flex;gap:12px;align-items:flex-end;justify-content:space-between;margin:31px 0 15px}.section-heading h2{font:500 28px Georgia,serif;margin:0}.section-heading p{margin:0;color:var(--muted);font-size:12px}.grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:15px}.card{background:linear-gradient(150deg,var(--panel),#121c20);border:1px solid var(--line);border-radius:var(--radius);padding:19px;min-width:0}.span3{grid-column:span 3}.span4{grid-column:span 4}.span6{grid-column:span 6}.span8{grid-column:span 8}.span12{grid-column:span 12}.kicker{color:var(--muted);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.4px}.metric{font:500 33px Georgia,serif;margin:4px 0;color:var(--text)}.metric small{font:13px system-ui;color:var(--muted)}.gold{color:var(--gold)}.muted{color:var(--muted)}.mini{font-size:12px;color:var(--muted)}.card h3{font:500 21px Georgia,serif;margin:0 0 10px}.card p{color:#c0ccca;margin:5px 0 0}.card-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}.rowline{padding:12px 0;border-bottom:1px solid #293b40}.rowline:last-child{border-bottom:0;padding-bottom:0}.rowtop{display:flex;align-items:center;justify-content:space-between;gap:10px}.rowtop strong{font-size:14px}.progress{height:7px;border-radius:20px;background:#26383b;overflow:hidden;margin:10px 0 4px}.progress>div{height:100%;background:linear-gradient(90deg,#6da994,#c4d6a0);border-radius:20px}.progress.done>div{background:var(--gold)}.tasks{display:grid;gap:12px}.task{display:flex;align-items:flex-start;gap:12px;border:1px solid var(--line);border-radius:12px;padding:14px;background:#18252a}.task .number{height:28px;min-width:28px;border:1px solid #6d6d4b;border-radius:9px;color:var(--gold);display:grid;place-items:center;font-weight:700;font-size:12px}.task strong{display:block;margin-bottom:3px}.task p{margin:0;color:var(--muted);font-size:13px}.space{height:9px}.formchips{display:flex;gap:8px;flex-wrap:wrap}.formchips span{border:1px solid #425b51;background:#20392f;color:#c4e7d8;border-radius:9px;padding:9px 12px;font-size:13px}.section{display:none}.section.active{display:block}.toolbar{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:16px}.filter{border:1px solid var(--line);border-radius:9px;background:#19272c;color:var(--muted);padding:8px 12px;font-size:12px}.filter.selected{background:#2b4538;color:var(--text);border-color:#547a67}.search{flex:1;min-width:155px;background:#152328;border:1px solid var(--line);outline:none;color:var(--text);padding:10px 13px;border-radius:10px}.search:focus{border-color:var(--gold)}.list{display:grid;gap:12px}.info{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}.info h3{margin:0 0 5px;font-size:16px;font-family:inherit;font-weight:700}.info p{margin:0;color:var(--muted);font-size:13px}.info .pill{flex-shrink:0}.slots{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.slot{padding:15px;border:1px solid var(--line);border-radius:13px;background:#19292d}.slot small{display:block;color:var(--muted);font-size:11px;letter-spacing:1px;text-transform:uppercase}.slot strong{display:block;margin-top:4px}.macro pre{white-space:pre-wrap;word-break:break-word;color:#d0ead8;background:#0b171b;padding:15px;border-radius:10px;border:1px solid var(--line);font:12px/1.65 ui-monospace,SFMono-Regular,Consolas,monospace}.macro .button{margin-top:8px}.links{display:flex;gap:10px;flex-wrap:wrap;margin-top:17px}.empty{padding:24px;color:var(--muted);text-align:center;border:1px dashed var(--line);border-radius:13px}.notice{padding:14px;border-left:3px solid var(--gold);background:#2b2a25;border-radius:4px 10px 10px 4px;color:#d3d0c5;font-size:13px;margin-top:16px}.footer{font-size:12px;color:var(--muted);padding-top:32px}.mobile-nav{display:none}.toast{position:fixed;right:20px;bottom:20px;background:#345041;border:1px solid #699078;color:#f4fff7;border-radius:10px;padding:13px 18px;box-shadow:0 15px 40px #0008;z-index:10}.toast[hidden]{display:none}button:focus-visible,a:focus-visible{outline:2px solid var(--gold);outline-offset:3px}@media(max-width:1100px){.span3{grid-column:span 6}.span4{grid-column:span 6}.span8{grid-column:span 12}}@media(max-width:740px){.layout{display:block}.sidebar{display:none}.mobile-nav{display:grid;grid-template-columns:repeat(6,1fr);position:fixed;z-index:9;bottom:0;left:0;right:0;padding:7px 7px calc(7px + env(safe-area-inset-bottom));background:#101c20f5;border-top:1px solid var(--line);backdrop-filter:blur(18px)}.mobile-nav button{border:0;background:transparent;color:var(--muted);padding:7px 2px;border-radius:8px;font-size:9px;font-weight:700;display:grid;justify-items:center;gap:2px}.mobile-nav button[aria-current=page]{color:var(--gold);background:#23342d}.mobile-nav span{font-size:20px}.main{padding:18px 15px 105px}.topline{margin-bottom:15px}.hero{padding:23px 19px}.hero h1{font-size:35px}.hero:after{right:-28px;top:-24px;font-size:170px}.grid{gap:11px}.span3,.span4,.span6,.span8,.span12{grid-column:span 12}.statGrid .span3{grid-column:span 6}.statGrid .card{padding:14px}.statGrid .metric{font-size:27px}.section-heading{margin:26px 0 12px}.section-heading h2{font-size:25px}.slots{grid-template-columns:1fr}.info{flex-wrap:wrap}.footer{padding-bottom:10px}.toast{left:15px;right:15px;bottom:94px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="layout">
+<aside class="sidebar">
+  <div class="brand"><div class="mark">✦</div><div><strong>WoW Forever</strong><small>Dein Guide</small></div></div>
+  <nav class="nav" aria-label="Dashboard-Navigation">
+    <button data-view="home" aria-current="page"><span class="glyph">⌂</span>Übersicht</button>
+    <button data-view="tasks"><span class="glyph">◇</span>Quests & Dungeons</button>
+    <button data-view="professions"><span class="glyph">▥</span>Berufe</button>
+    <button data-view="gear"><span class="glyph">♜</span>Ausrüstung</button>
+    <button data-view="tools"><span class="glyph">⌘</span>Makros & Controller</button>
+    <button data-view="books"><span class="glyph">▤</span>Bücher & Sammlung</button>
+  </nav>
+  <div class="sidefoot">Datenstand: <strong>12.11.2026</strong><br>Quelle: character_tracker.md<a href="https://github.com/Claywell1810/WoW-Forever-Guide/blob/main/character_tracker.md">Charaktertracker ↗</a><a href="https://github.com/Claywell1810/WoW-Forever-Guide/blob/main/guide.md">Ausführlicher Guide ↗</a></div>
+</aside>
+<main class="main">
+  <div class="topline"><span><span class="dot"></span> Persönlicher Charakterguide · Horde · PvE</span><a class="button secondary" href="https://github.com/Claywell1810/WoW-Forever-Guide/blob/main/character_tracker.md">Tracker ↗</a></div>
+  <header class="hero"><span class="eyebrow">World of Warcraft · Forever</span><h1>Dein Abenteuer.<br><span class="gold">Ein Überblick.</span></h1><p>Alle wichtigen Fortschritte, nächsten Schritte und bewährten Controller-Makros an einem Ort. Spoilerarm und nach bestätigtem Spielstand.</p><div class="badges"><span class="pill">Stufe 22</span><span class="pill">Horde · Druide</span><span class="pill">Himmelsgeborener · Windformer</span><span class="pill plan">Wrathcat / Heiler</span></div></header>
+  <div id="home" class="section active"></div>
+  <div id="tasks" class="section"></div>
+  <div id="professions" class="section"></div>
+  <div id="gear" class="section"></div>
+  <div id="tools" class="section"></div>
+  <div id="books" class="section"></div>
+  <footer class="footer">Stand: 12. November 2026 · Diese Webansicht ist ein <strong>Snapshot</strong> des bestätigten GitHub-Trackers, keine Live-Synchronisation. Fortschritte bitte weiterhin im Chat melden; dann wird der Tracker aktualisiert und die Dashboard-Datei kann mitgezogen werden. Keine lokalen Änderungen werden als Spielstand gespeichert.</footer>
+</main>
+</div>
+<nav class="mobile-nav" aria-label="Mobile Navigation">
+  <button data-view="home" aria-current="page"><span>⌂</span>Start</button>
+  <button data-view="tasks"><span>◇</span>Quests</button>
+  <button data-view="professions"><span>▥</span>Berufe</button>
+  <button data-view="gear"><span>♜</span>Gear</button>
+  <button data-view="tools"><span>⌘</span>Makros</button>
+  <button data-view="books"><span>▤</span>Bücher</button>
+</nav>
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+<script>
+'use strict';
+const DATA={
+  professions:[
+    {name:'Kochen',value:225,goal:225,goalLabel:'225/225',note:'Expertenstufe erreicht · nächster Trainingsschritt offen',status:'done'},
+    {name:'Kürschnerei',value:141,goal:150,goalLabel:'141 (zuletzt)',note:'Über 150 trainieren: Wunsch; kein neuer Wert bestätigt',status:'plan'},
+    {name:'Lederverarbeitung',value:91,goal:150,goalLabel:'91/150',note:'Deviatschuppengürtel hergestellt · Geselle',status:'confirmed'},
+    {name:'Erste Hilfe',value:81,goal:150,goalLabel:'81',note:'Nächste Rezepte und Stoffkosten prüfen · Zielskala 150',status:'confirmed'}
+  ],
+  quests:[
+    {title:'Burg Schattenfang',type:'Dungeon',status:'plan',description:'Als nächster Dungeon vorgesehen. Am 11.11. keine Gruppe gefunden; Abschluss nicht bestätigt.'},
+    {title:'Quests für weitere Instanzen sammeln',type:'Dungeon',status:'plan',description:'Wunsch aus dem letzten Gespräch; mögliche Horde-Quests und Anforderungen vorab prüfen.'},
+    {title:'Steinkrallengebirge',type:'Gebiet',status:'plan',description:'Als nächste Level-Alternative erwägen; Anreise und Flugpunkt noch nicht bestätigt.'},
+    {title:'Camp Taurajo / Flugpunkt',type:'Reise',status:'unknown',description:'Südliches Brachland ist besucht. Freischaltung dieses Flugpunkts nicht ausdrücklich bestätigt.'},
+    {title:'Tausend Nadeln',type:'Gebiet',status:'plan',description:'Kurz betreten und als derzeit zu schwer eingeschätzt. Für später vormerken.'},
+    {title:'Brachland: alte Quests',type:'Questlog',status:'unknown',description:'Zentaurenarmschienen, Harpyienkrallen und andere Altquests bei Bedarf prüfen; kein Abbruch bestätigt.'},
+    {title:'Wassergestalt',type:'Druidenquest',status:'done',description:'Am 11.11. ausdrücklich abgeschlossen.'},
+    {title:'Höhlen des Wehklagens',type:'Dungeon',status:'done',description:'Bereits gespielt. Kein zusätzlicher Abschlussstatus behauptet.'},
+    {title:'Südliches Brachland',type:'Gebiet',status:'done',description:'Besucht und einige Quests erledigt; einzelne Questnamen nicht erfasst.'}
+  ],
+  slots:[
+    {slot:'Brust',item:'Zeremonieller Lederharnisch'},
+    {slot:'Beine',item:'Giftzahn-Gamaschen'},
+    {slot:'Hände',item:'Giftzahn-Handschuhe'},
+    {slot:'Füße',item:'Abgrundläufer'}
+  ],
+  sets:[
+    {title:'Giftzahn',status:'confirmed',description:'Zwei Teile bekannt: Gamaschen und Handschuhe; zuletzt getragen.'},
+    {title:'Fäulnisheiler',status:'done',description:'Drei Teile gesammelt (Schärpe, Gamaschen, Handschuhe). Weiterer Setaufbau bewusst verworfen.'},
+    {title:'Lederrüstung der Weisheit',status:'plan',description:'Gewünschte Heilbrust. Erwerb/Herstellung nicht bestätigt; frühere AH-Schätzung ca. 36 Silber.'},
+    {title:'Lederrüstung des Verteidigers',status:'plan',description:'Gewünschte Solo-Brust. Muster bisher nicht bestätigt; historischer Preis 45 Silber.'}
+  ],
+  books:[
+    {title:'Geheimnisse der Träumer',status:'confirmed',description:'Im Zusammenhang mit Höhlen des Wehklagens gefunden. Abgabe nicht bestätigt.'},
+    {title:'Baxtan: Über zerstörerische Magie',status:'unknown',description:'Ratschet als Fundkontext erwähnt; Besitz noch nicht bestätigt.'}
+  ],
+  macros:[
+    {title:'Katzenform + Klaue',status:'confirmed',note:'Vom Spieler am 10.11. als funktionierend gemeldet.',code:['#showtooltip Klaue','/cancelform [noform:3]','/cast [noform:3] !Katzengestalt','/cast [form:3,harm,nodead] Klaue','/startattack [form:3,harm,nodead]'].join('\n')},
+    {title:'Selbst-Verjüngung',status:'plan',note:'Besprochener Entwurf. Noch kein erfolgreicher Funktionstest bestätigt.',code:['#showtooltip Verjüngung','/cancelform [form]','/cast [@player] Verjüngung'].join('\n')},
+    {title:'Mondfeuer + Rückverwandlung',status:'plan',note:'Besprochener Entwurf. In WoW Forever prüfen.',code:['#showtooltip Mondfeuer','/cancelform [form]','/cast Mondfeuer'].join('\n')}
+  ]
+};
+const label={done:'Erledigt / erreicht',confirmed:'Bestätigt',plan:'Geplant',unknown:'Nicht bestätigt'};
+const cssStatus={done:'done',confirmed:'done',plan:'plan',unknown:'unknown'};
+const viewTitle={home:'Übersicht',tasks:'Quests & Dungeons',professions:'Berufe',gear:'Ausrüstung',tools:'Makros & Controller',books:'Bücher & Sammlung'};
+function esc(s){return String(s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+function tag(s){return '<span class="pill '+cssStatus[s]+'">'+label[s]+'</span>'}
+function heading(t,sub){return '<div class="section-heading"><h2>'+esc(t)+'</h2><p>'+esc(sub||'')+'</p></div>'}
+function professionRow(p){return '<div class="rowline"><div class="rowtop"><strong>'+esc(p.name)+'</strong><span class="mini">'+esc(p.goalLabel)+'</span></div><div class="progress '+(p.status==='done'?'done':'')+'" role="progressbar" aria-label="'+esc(p.name)+'" aria-valuemin="0" aria-valuemax="'+p.goal+'" aria-valuenow="'+p.value+'"><div style="width:'+Math.min(100,100*p.value/p.goal)+'%"></div></div><div class="mini">'+esc(p.note)+'</div></div>'}
+function infoCard(x,meta){return '<article class="card"><div class="info"><div><h3>'+esc(x.title)+'</h3><p>'+(meta?'<span class="gold">'+esc(meta)+' · </span>':'')+esc(x.description)+'</p></div>'+tag(x.status)+'</div></article>'}
+function cardHead(t,more){return '<div class="card-head"><h3>'+t+'</h3>'+(more||'')+'</div>'}
+function renderHome(){
+const p=DATA.professions;
+document.getElementById('home').innerHTML=heading('Auf einen Blick','Bestätigter Stand · 12.11.2026')+
+'<div class="grid statGrid">'+
+'<div class="card span3"><div class="kicker">Charakterstufe</div><div class="metric">22 <small>/ ?</small></div><div class="mini">Letzte Bestätigung: 11.11.</div></div>'+
+'<div class="card span3"><div class="kicker">Kochkunst</div><div class="metric gold">225</div><div class="mini">Aktuelle Obergrenze erreicht</div></div>'+
+'<div class="card span3"><div class="kicker">Wassergestalt</div><div class="metric">✓</div><div class="mini">Quest abgeschlossen</div></div>'+
+'<div class="card span3"><div class="kicker">Letztes Gebiet</div><div class="metric" style="font-size:20px;margin:12px 0">Südl. Brachland</div><div class="mini">Genauer Standort offen</div></div>'+
+'</div>'+heading('Deine nächsten Schritte','Vorschläge, keine erledigten Quests')+
+'<div class="grid"><div class="card span8"><div class="tasks">'+
+'<div class="task"><span class="number">1</span><div><strong>Burg Schattenfang</strong><p>Neue Gruppe suchen; bisher keine Gruppe gefunden.</p></div></div>'+
+'<div class="task"><span class="number">2</span><div><strong>Steinkrallengebirge prüfen</strong><p>Als Alternative zu den zu schweren Tausend Nadeln.</p></div></div>'+
+'<div class="task"><span class="number">3</span><div><strong>Kürschnerei über 150</strong><p>Trainingsmöglichkeit klären; zuletzt 141 bestätigt.</p></div></div>'+
+'</div></div><div class="card span4">'+cardHead('Gestalten')+'<div class="formchips"><span>Bär ✓</span><span>Katze ✓</span><span>Wasser ✓</span></div><div class="space"></div><p class="mini">Wrathcat zum Solo-Leveln, in Instanzen Heiler. Tatsächlich gesetzte Talente nicht dokumentiert.</p><div class="notice">Katzen-Schleichen und heutiger Goldbestand sind nicht bestätigt.</div></div></div>'+
+heading('Berufe','Zum vollständigen Bereich wechseln')+
+'<div class="grid"><div class="card span8">'+p.map(professionRow).join('')+'</div><div class="card span4">'+cardHead('Schnellzugriff')+'<div class="tasks"><button class="button secondary" data-view="tasks">Quests & Dungeons öffnen →</button><button class="button secondary" data-view="tools">Makros kopieren →</button><button class="button secondary" data-view="gear">Ausrüstung ansehen →</button></div><p class="mini" style="margin-top:18px">Fortschritte im Chat melden, damit sie im GitHub-Tracker gespeichert werden können.</p></div></div>'
+}
+function renderTasks(){
+document.getElementById('tasks').innerHTML=heading('Quests & Dungeons','Spoilerarm · bestätigte Fortschritte und offene Pläne')+
+'<div class="toolbar"><input id="task-search" class="search" type="search" placeholder="Aufgaben suchen …" aria-label="Aufgaben durchsuchen"><button class="filter selected" data-filter="all">Alle</button><button class="filter" data-filter="plan">Offen / geplant</button><button class="filter" data-filter="done">Erledigt</button><button class="filter" data-filter="unknown">Unklar</button></div><div class="list" id="task-list"></div>';
+renderTaskList('all','')
+}
+function renderTaskList(filter,q){
+const a=DATA.quests.filter(x=>(filter==='all'||x.status===filter||(filter==='plan'&&x.status==='plan'))&&(x.title+' '+x.type+' '+x.description).toLowerCase().includes(q.toLowerCase()));
+document.getElementById('task-list').innerHTML=a.length?a.map(x=>infoCard(x,x.type)).join(''):'<div class="empty">Keine passenden Einträge.</div>'
+}
+function renderProfessions(){
+document.getElementById('professions').innerHTML=heading('Berufe','Bestätigte Fertigkeiten · Obergrenzen nur, wo dokumentiert')+
+'<div class="grid"><div class="card span8">'+DATA.professions.map(professionRow).join('')+'</div><div class="card span4">'+cardHead('Material & Wirtschaft')+
+'<p><strong>60 rohe Mithrilkopfforellen</strong> am 09.11. gekauft. Aktueller Restbestand unbekannt.</p><div class="space"></div><p>Alte AH-Preise sind keine aktuellen Marktpreise. Kosten für Lederrezepte vor dem Kauf neu prüfen.</p><div class="notice">Bei Erste Hilfe dient die Skala 150 als nächstes Orientierungsziel, nicht als bestätigte Ausbildungsobergrenze.</div></div></div>'
+}
+function renderGear(){
+document.getElementById('gear').innerHTML=heading('Ausrüstung','Zuletzt gemeldete Teile vom 11.11.2026')+
+'<div class="grid"><div class="card span6">'+cardHead('Aktuell getragen')+'<div class="slots">'+DATA.slots.map(x=>'<div class="slot"><small>'+esc(x.slot)+'</small><strong>'+esc(x.item)+'</strong></div>').join('')+'</div><p class="mini" style="margin-top:17px">Waffe: früher bestätigter Stab mit 9,5 DPS vom 07.11.; aktuelle Waffe unbekannt.</p></div><div class="card span6">'+cardHead('Rollen & geplante Upgrades')+
+'<div class="rowline"><strong>Solo · Wrathcat</strong><p class="mini">Lederrüstung des Verteidigers gewünscht; noch kein Kauf bestätigt.</p></div><div class="rowline"><strong>Dungeon · Heiler</strong><p class="mini">Lederrüstung der Weisheit gewünscht; noch kein Kauf bestätigt.</p></div></div></div>'+
+heading('Sets und Handwerk','Erhalten ist nicht gleich ausgerüstet')+'<div class="list">'+DATA.sets.map(x=>infoCard(x)).join('')+
+infoCard({title:'Deviatschuppengürtel',status:'confirmed',description:'Bei Lederverarbeitung 91 hergestellt; Tragen nicht bestätigt.'})+'</div>'
+}
+function renderTools(){
+document.getElementById('tools').innerHTML=heading('Makros & Controller','Bestätigte Makros sind gekennzeichnet')+
+'<div class="grid"><div class="card span6">'+cardHead('DualSense')+
+'<div class="rowline"><strong>Bluetooth & native Steuerung</strong><p class="mini">Funktionieren laut Spieler.</p></div>'+
+'<div class="rowline"><strong>Esc auf dem Controller</strong><p class="mini">Am 10.11. belegt, um Chatfenster zu verlassen.</p></div>'+
+'<div class="rowline"><strong>Mikrofontaste / Spracheingabe</strong><p class="mini">Push-to-Talk-Texteingabe im Test erfolgreich.</p></div>'+
+'<div class="rowline"><strong>Touchpad als Maus</strong><p class="mini">Getestet und wegen Bedienbarkeit verworfen; Standard-Bedienung bevorzugt.</p></div></div>'+
+'<div class="card span6">'+cardHead('Noch nicht fertig')+
+'<div class="rowline"><strong>Heiler-Notfalltaste</strong><p class="mini">Selbstheilung, dann Bär; als Wunsch dokumentiert, nicht als funktionierendes Ein-Tasten-Makro bestätigt.</p></div>'+
+'<div class="rowline"><strong>Waffenwechsel & Heilränge</strong><p class="mini">Vorgesehen; endgültige Makros und Tastenbelegung noch offen.</p></div>'+
+'<div class="rowline"><strong>Addons</strong><p class="mini">TomTom und DungeonJournal installiert. Spoken: German gewünscht, Installationsabschluss nicht gesichert.</p></div>'+
+'<div class="links"><a href="https://github.com/Claywell1810/WoW-Forever-Guide/blob/main/controller_dualsense_setup.md">Controller-Dokumentation ↗</a></div></div></div>'+
+heading('Makro-Bibliothek','Kopieren für das Makromenü in WoW')+
+'<div class="grid">'+DATA.macros.map((m,i)=>'<article class="card span6 macro"><div class="card-head"><h3>'+esc(m.title)+'</h3>'+tag(m.status)+'</div><p class="mini">'+esc(m.note)+'</p><pre id="macro-'+i+'">'+esc(m.code)+'</pre><button class="button secondary" data-copy="'+i+'">Makro kopieren</button></article>').join('')+'</div>'
+}
+function renderBooks(){
+document.getElementById('books').innerHTML=heading('Bücher & Sammlung','Sammelziel: 10 Bücher')+
+'<div class="grid"><div class="card span4"><div class="kicker">Sicher nachgewiesen</div><div class="metric">1 <small>/ 10 Ziel</small></div><div class="progress" role="progressbar" aria-valuenow="1" aria-valuemin="0" aria-valuemax="10" aria-label="Bücherziel"><div style="width:10%"></div></div><p class="mini">Mindestens ein ausdrücklich benanntes Buch. Kein vollständiger Gesamtbestand bekannt.</p></div><div class="card span8">'+cardHead('Bücherliste')+
+DATA.books.map(x=>'<div class="rowline"><div class="info"><div><strong>'+esc(x.title)+'</strong><p>'+esc(x.description)+'</p></div>'+tag(x.status)+'</div></div>').join('')+'</div></div>'+
+'<div class="notice">„Geheimnisse der Träumer“ wurde gefunden. Abgabe an die Sammlung und Fortschritt zum 10-Bücher-Ziel sind nicht bestätigt.</div>'
+}
+function navigate(view){
+if(!document.getElementById(view)||!viewTitle[view])return;
+document.querySelectorAll('.section').forEach(x=>x.classList.toggle('active',x.id===view));
+document.querySelectorAll('[data-view]').forEach(x=>{if(x.tagName==='BUTTON' && (x.closest('.nav')||x.closest('.mobile-nav'))){if(x.dataset.view===view)x.setAttribute('aria-current','page');else x.removeAttribute('aria-current')}});
+document.title=viewTitle[view]+' · WoW Forever';
+if(location.hash!=='#'+view)history.replaceState(null,'','#'+view);
+window.scrollTo({top:0,behavior:'instant'})
+}
+let currentFilter='all';let currentQuery='';
+document.addEventListener('click',async function(e){
+const v=e.target.closest('[data-view]');if(v){navigate(v.dataset.view);return}
+const f=e.target.closest('[data-filter]');if(f){currentFilter=f.dataset.filter;document.querySelectorAll('[data-filter]').forEach(x=>x.classList.toggle('selected',x===f));renderTaskList(currentFilter,currentQuery);return}
+const c=e.target.closest('[data-copy]');if(c){const m=DATA.macros[Number(c.dataset.copy)];if(!m)return;try{await navigator.clipboard.writeText(m.code);showToast('Makro kopiert.')}catch(err){const range=document.createRange();range.selectNodeContents(document.getElementById('macro-'+c.dataset.copy));const selection=window.getSelection();selection.removeAllRanges();selection.addRange(range);showToast('Makro markiert – bitte manuell kopieren.')}return}
+});
+document.addEventListener('input',function(e){if(e.target.id==='task-search'){currentQuery=e.target.value;renderTaskList(currentFilter,currentQuery)}});
+let hideToast;function showToast(msg){const el=document.getElementById('toast');el.textContent=msg;el.hidden=false;clearTimeout(hideToast);hideToast=setTimeout(()=>el.hidden=true,2900)}
+renderHome();renderTasks();renderProfessions();renderGear();renderTools();renderBooks();
+navigate((location.hash||'#home').slice(1));
+window.addEventListener('hashchange',function(){navigate((location.hash||'#home').slice(1))});
+if ("serviceWorker" in navigator && location.protocol === "https:") {
+  window.addEventListener("load", () => navigator.serviceWorker.register("./sw.js").catch(() => {}));
+}
+</script>
+</body>
+</html>
