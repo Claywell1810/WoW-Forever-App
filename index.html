@@ -180,9 +180,24 @@ function milestoneHtml(key){
   m.items.map(it=>{const done=LOCAL_PROGRESS.milestones[it[0]]===true;return '<label class="milestone-row'+(done?' done':'')+'"><input type="checkbox" data-milestone="'+esc(it[0])+'" data-category="'+esc(key)+'" '+(done?"checked":"")+'><span class="milestone-body"><span class="milestone-level">'+esc(it[1])+'</span><span class="milestone-row-title">'+esc(it[2])+'</span><span class="milestone-note">'+esc(it[3])+'</span></span></label>'}).join("")+
   '<p class="mini">Häkchen werden nur auf diesem Gerät gespeichert – unabhängig vom bestätigten GitHub-Spielstand.</p></div>';
 }
+
+function checkedProgressAsText(){
+ const selectedMilestones=MILESTONES.map(g=>({title:g.title,done:g.items.filter(x=>LOCAL_PROGRESS.milestones[x[0]]===true)}));
+ const selectedTalents=TALENT_POINTS.filter(p=>LOCAL_PROGRESS.talents[p.id]===true);
+ const date=new Date().toLocaleDateString("de-DE");
+ return "WoW Forever – lokale Häkchen ("+date+")\n"+
+ "Talentmodell: "+(talentState.mode==="legacy"?"Talentiert Rang 2 (ab Stufe 8)":"Normal (ab Stufe 10)")+"\n"+
+ "Nur manuell abgehakte Punkte, noch kein GitHub-Spielstand.\n\n"+
+ "Talentpunkte ("+selectedTalents.length+"/51):\n"+
+ (selectedTalents.map(p=>"- Stufe "+(p.level+talentOffset())+": "+p.name+" "+p.rank+"/"+p.max).join("\n")||"(keine angehakt)")+
+ "\n\nEntwicklungsziele bis 35:\n"+
+ selectedMilestones.map(g=>g.title+":\n"+(g.done.map(x=>"- "+x[1]+": "+x[2]).join("\n")||"(keine angehakt)")).join("\n\n");
+}
+
 function progressOverview(){
   return heading("Dein Plan bis Stufe 35","Tippe einen Bereich an, um Etappen abzuhaken")+
-  '<div class="plan-overview">'+MILESTONES.map(m=>{const c=milestoneTotals(m.key);return '<button data-view="'+esc(m.key)+'"><b>'+esc(m.title)+'</b><small>'+c.done+' von '+c.total+' erledigt</small><div class="milestone-progress"><span style="width:'+(c.done*100/c.total)+'%"></span></div></button>'}).join("")+'</div>';
+  '<div class="plan-overview">'+MILESTONES.map(m=>{const c=milestoneTotals(m.key);return '<button data-view="'+esc(m.key)+'"><b>'+esc(m.title)+'</b><small>'+c.done+' von '+c.total+' erledigt</small><div class="milestone-progress"><span style="width:'+(c.done*100/c.total)+'%"></span></div></button>'}).join("")+'</div>'+
+  '<div style="margin-top:12px"><button class="button secondary" data-export-summary="1">Abgehakte Ziele für den Chat kopieren</button></div>';
 }
 function refreshMilestones(key){
   const parent=document.querySelector('[data-milestone-panel="'+key+'"]');
@@ -260,7 +275,7 @@ function renderTalents(){
  '<p class="mini" style="margin-top:13px">51 Punkte insgesamt, vorläufig. Early-Game-Reihenfolge stammt aus Captain Coachs Video; spätere Alternativen können davon abweichen.</p>'+
  '<div class="rowline"><strong>Solo</strong><p class="mini">2–3 Zorn zum Pull, danach Katze zum Beenden. Gelegentlich Selbstheilung vor dem Gestaltwechsel.</p></div><div class="rowline"><strong>Dungeon</strong><p class="mini">Heiler mit zusätzlichen Wiederherstellungs-Talenten. Tatsächlich gesetzte Punkte und Ausrüstung separat prüfen.</p></div></div></div>'+
  heading("Talentpunkte abhaken","Ein Häkchen pro vergebener Talentstufe")+
- '<div class="talent-progress"><div class="talent-progress-top"><strong id="talent-check-count">0 / 51 abgehakt</strong><span id="talent-35-count">0 bis Stufe 35</span></div><div class="milestone-progress"><span id="talent-progress-bar" style="width:0%"></span></div><p class="mini">Nur auf deinem Gerät gespeichert; die vorläufige Reihenfolge ist keine bestätigte Skillung.</p></div>'+
+ '<div class="talent-progress"><div class="talent-progress-top"><strong id="talent-check-count">0 / 51 abgehakt</strong><span id="talent-35-count">0 bis Stufe 35</span></div><div class="milestone-progress"><span id="talent-progress-bar" style="width:0%"></span></div><p class="mini">Nur auf deinem Gerät gespeichert; die vorläufige Reihenfolge ist keine bestätigte Skillung.</p><button class="button secondary" data-export-summary="1">Meine Talent-Häkchen für den Chat kopieren</button></div>'+
  '<div class="toolbar"><button class="filter" data-talent-filter="all">Alle 51</button><button class="filter" data-talent-filter="upto">Bis gewählte Stufe</button><button class="filter selected" data-talent-filter="through35">Bis Stufe 35</button><button class="filter" data-talent-filter="next">Nächste 5 Stufen</button></div>'+
  '<div class="card"><div id="talent-list"></div></div>';
  document.getElementById("talent-mode").value=talentState.mode;
@@ -417,6 +432,7 @@ window.scrollTo({top:0,behavior:'instant'})
 }
 let currentFilter='all';let currentQuery='';
 document.addEventListener('click',async function(e){
+const ex=e.target.closest('[data-export-summary]');if(ex){const summary=checkedProgressAsText();try{await navigator.clipboard.writeText(summary);showToast("Sitzungsstand kopiert – zum Einfügen in den Chat bereit.")}catch(_){if(window.prompt)window.prompt("Sitzungsstand kopieren:",summary);else showToast("Kopieren nicht möglich.")}return}
 const v=e.target.closest('[data-view]');if(v){navigate(v.dataset.view);return}
 const f=e.target.closest('[data-filter]');if(f){currentFilter=f.dataset.filter;document.querySelectorAll('[data-filter]').forEach(x=>x.classList.toggle('selected',x===f));renderTaskList(currentFilter,currentQuery);return}
 const pp=e.target.closest('[data-pick-prof]');if(pp){guidedProf=Number(pp.dataset.pickProf);document.querySelectorAll('[data-pick-prof]').forEach(x=>x.classList.toggle('selected',x===pp));renderGuidedProf();return}
