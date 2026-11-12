@@ -85,8 +85,9 @@
   }
   function uxTodaySpells(){
     const lv=uxLevel(),available=SPELLBOOK.ranks.filter(s=>s.lv<=lv&&s.flag==="trainer"&&!LOCAL_PROGRESS.spells[s.id]);
-    const latest=SPELLBOOK.ranks.filter(s=>s.lv===lv&&s.flag==="trainer"&&!LOCAL_PROGRESS.spells[s.id]);
-    return {open:available.length,new:latest.length};
+    const latestLevel=Math.max(0,...SPELLBOOK.ranks.filter(s=>s.lv<=lv&&s.flag==="trainer").map(s=>s.lv));
+    const latest=SPELLBOOK.ranks.filter(s=>s.lv===latestLevel&&s.flag==="trainer"&&!LOCAL_PROGRESS.spells[s.id]);
+    return {open:available.length,new:latest.length,latestLevel};
   }
   function uxFirstMilestone(group){
     const m=MILESTONES.find(g=>g.key===group);
@@ -110,7 +111,7 @@
     '<div class="ux-confirmed"><b>GitHub-Spielstand: Stufe '+CONFIRMED_LEVEL+'</b><span id="ux-plan-note">Planungsstufe '+lv+' ist nur für Empfehlungen; keine automatische Übernahme.</span></div>'+
     '<div class="ux-action-grid">'+
       '<button class="ux-action-card" data-view="talents"><span class="ux-card-top">✧ Talente</span><span>'+uxTodayTalent()+'</span><span class="ux-chip">Talentplan ansehen</span></button>'+
-      '<button class="ux-action-card" data-view="spells"><span class="ux-card-top">✺ Zauber beim Lehrer</span><span><strong>'+spell.new+' neue Ränge für Stufe '+lv+'</strong><small>'+spell.open+' bis zu dieser Stufe noch nicht abgehakt</small></span><span class="ux-chip">Zauberbuch öffnen</span></button>'+
+      '<button class="ux-action-card" data-view="spells"><span class="ux-card-top">✺ Zauber beim Lehrer</span><span><strong>'+spell.new+' letzte Ränge (Stufe '+spell.latestLevel+')</strong><small>'+spell.open+' bis zu deiner Planungsstufe noch nicht abgehakt</small></span><span class="ux-chip">Zauberbuch öffnen</span></button>'+
       '<button class="ux-action-card" data-view="professions"><span class="ux-card-top">▥ Berufe</span><span><strong>Leder 91 · Kürschnerei 141</strong><small>Erste Hilfe 81 · Kochen 225</small></span><span class="ux-chip">Skillwege ansehen</span></button>'+
     '</div>'+
     '<div class="ux-today-panel"><div class="ux-next-header"><h3>Offene Zwischenziele</h3><span class="ux-chip">'+doneTotal+'/'+goalsTotal+' erledigt</span></div>'+
@@ -258,9 +259,10 @@
   spellView.range="ux-current";
   spellListFiltered=function(){
     const plan=uxLevel(),query=spellView.query.toLowerCase();
+    const latestSpellLevel=Math.max(0,...SPELLBOOK.ranks.filter(s=>s.lv<=plan).map(s=>s.lv));
     return SPELLBOOK.ranks.filter(s=>{
       let range=false;
-      if(spellView.range==="ux-current")range=s.lv===plan;
+      if(spellView.range==="ux-current")range=s.lv===latestSpellLevel;
       else if(spellView.range==="ux-open")range=s.lv<=plan;
       else if(spellView.range==="next")range=s.lv>plan&&s.lv<=35;
       else if(spellView.range==="to35")range=s.lv<=35;
@@ -286,7 +288,7 @@
     if(!root)return;
     const strips=root.querySelectorAll(".spell-chips");
     if(strips.length){
-      const ranges=[["ux-current","Aktuelle Stufe"],["ux-open","Bis Planungsstufe"],["next","Danach bis 35"],["to35","Alle bis 35"],["all","Alle 1–60"]];
+      const ranges=[["ux-current","Letztes Lernlevel"],["ux-open","Bis Planungsstufe"],["next","Danach bis 35"],["to35","Alle bis 35"],["all","Alle 1–60"]];
       strips[0].innerHTML=ranges.map(x=>'<button class="spell-chip'+(spellView.range===x[0]?" selected":"")+'" data-spell-range="'+x[0]+'">'+x[1]+'</button>').join("");
       const extras=document.createElement("div");
       extras.className="ux-spell-tools";
