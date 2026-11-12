@@ -1,5 +1,5 @@
 /* GitHub-Pages-PWA: zuletzt online geladene App-Dateien auch offline anzeigen. */
-const CACHE = "wow-forever-v7-20261112-recovery";
+const CACHE = "wow-forever-v8-20261112-navigation";
 const FILES = ["./", "./index.html", "./manifest.webmanifest", "./icon.svg", "./icon-192.png", "./spellbook.js"];
 self.addEventListener("install", event => {
   event.waitUntil((async () => {
