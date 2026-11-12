@@ -350,6 +350,11 @@
     if(t.closest("[data-ux-reload]")){window.location.reload();return}
   });
   uxSetupNavigation();
+  // Replace older long checklists with grouped, collapsed completed entries on first load.
+  for(const key of ["leveling","tasks","dungeons","professions","gear"]){
+    const panel=document.querySelector('[data-milestone-panel="'+key+'"]');
+    if(panel)panel.outerHTML=uxMilestoneHTML(key);
+  }
   uxRepositionPanels();
   renderSpells();
   uxRenderHome();
