@@ -278,6 +278,33 @@ el.innerHTML='<div class="guide-hint"><strong>'+esc(d[0])+' · '+esc(d[1])+'</st
 '<div class="guide-links"><a href="'+esc(d[4])+'" target="_blank" rel="noopener">Aktuelle Quelle öffnen ↗</a></div>';
 }
 
+
+const GUIDED_CRAFTS=[
+["Lederrüstung der Weisheit","Heiler","Geplantes Heiler-Brustteil","Für deine Dungeon-Heilung: Heil- und Willenskraftwerte mit deiner bisherigen Brust vergleichen.","Im AH früher ca. 36 Silber; Besitz, Muster und Materialien unbestätigt.","plan"],
+["Lederrüstung des Verteidigers","Solo","Geplantes Solo-Brustteil","Prüfe Ausdauer, Rüstung und Kampfnutzen für deinen Wrathcat.","Muster früher 45 Silber; noch kein Kauf oder Crafting bestätigt.","plan"],
+["Grubenkämpfer-Brustrüstung","Solo","Alternative für den Brustslot","Mögliches Upgrade, aber nur bei gutem Gegenwert gegenüber deinen bisherigen Teilen.","Muster für 85 Silber besprochen und als zu teuer eingeschätzt.","plan"],
+["Mittleres Rüstungsset","Nützlich","Zwischenverbesserung","Ein Rüstungsset kann bestehende Ausrüstung etwas verstärken, ohne ein neues Teil zu brauchen.","Rezept und Materialbedarf direkt im Berufsfenster prüfen; Anwendung unbestätigt.","plan"],
+["Camp Tent / Lagerzelt","Nützlich","Forever-spezifisches Lagerobjekt","Interessantes Lederhandwerk für Lager/Erholung statt eines weiteren Rüstungsteils.","Forever-Guides nennen 5× leichtes Leder; Herstellung unbestätigt.","plan"],
+["Deviatschuppengürtel","Solo","Bereits hergestellt","Bei Lederverarbeitung 91 hergestellt. Mit deinem angelegten Gürtel vergleichen, bevor du mehr machst.","Ausrüsten nicht bestätigt.","confirmed"]
+];
+let guidedCraft="Alle";
+function renderGearV2(){
+document.getElementById("gear").innerHTML=heading("Gear craften","Gute Leder-Crafts für deinen Druiden")+
+'<div class="guide-hint"><strong>Deine Wunsch-Brustrüstungen:</strong> Weisheit fürs Heilen, Verteidiger fürs Solo-Leveln. Beide noch geplant. Vor dem Kauf Muster, Materialkosten und tatsächliche Werte prüfen.</div>'+
+'<div class="toolbar">'+["Alle","Solo","Heiler","Nützlich"].map(x=>'<button class="filter'+(guidedCraft===x?" selected":"")+'" data-pick-craft="'+x+'">'+x+'</button>').join("")+'</div>'+
+'<div class="grid" id="guided-craft"></div>'+
+heading("Zuletzt getragen","Bestätigt am 11.11.2026")+
+'<div class="grid"><div class="card span8"><div class="slots">'+DATA.slots.map(x=>'<div class="slot"><small>'+esc(x.slot)+'</small><strong>'+esc(x.item)+'</strong></div>').join("")+'</div></div>'+
+'<div class="card span4">'+cardHead("Worauf achten?")+'<p>Für Solo: Kampfnutzen und Überleben. Fürs Heilen: passende Heil-/Willenskraftwerte. Das Fäulnisheiler-Set wolltest du bewusst nicht weiter sammeln.</p><div class="guide-links"><a href="https://mobalytics.gg/wow-forever/guides/leatherworking-profession-guide" target="_blank" rel="noopener">Forever-Rezeptguide ↗</a></div></div></div>';
+renderGuidedCraft();
+}
+function renderGuidedCraft(){
+const el=document.getElementById("guided-craft");if(!el)return;
+el.innerHTML=GUIDED_CRAFTS.filter(x=>guidedCraft==="Alle"||x[1]===guidedCraft).map(x=>
+'<article class="card span6"><div class="card-head"><h3>'+esc(x[0])+'</h3>'+tag(x[5])+'</div>'+
+'<span class="guide-pill">'+esc(x[2])+'</span><p>'+esc(x[3])+'</p><p class="mini" style="margin-top:13px">'+esc(x[4])+'</p></article>').join("");
+}
+
 function renderTools(){
 document.getElementById('tools').innerHTML=heading('Makros & Controller','Bestätigte Makros sind gekennzeichnet')+
 '<div class="grid"><div class="card span6">'+cardHead('DualSense')+
@@ -312,13 +339,14 @@ document.addEventListener('click',async function(e){
 const v=e.target.closest('[data-view]');if(v){navigate(v.dataset.view);return}
 const f=e.target.closest('[data-filter]');if(f){currentFilter=f.dataset.filter;document.querySelectorAll('[data-filter]').forEach(x=>x.classList.toggle('selected',x===f));renderTaskList(currentFilter,currentQuery);return}
 const pp=e.target.closest('[data-pick-prof]');if(pp){guidedProf=Number(pp.dataset.pickProf);document.querySelectorAll('[data-pick-prof]').forEach(x=>x.classList.toggle('selected',x===pp));renderGuidedProf();return}
+const gg=e.target.closest('[data-pick-craft]');if(gg){guidedCraft=gg.dataset.pickCraft;document.querySelectorAll('[data-pick-craft]').forEach(x=>x.classList.toggle('selected',x===gg));renderGuidedCraft();return}
 const tf=e.target.closest('[data-talent-filter]');if(tf){talentState.filter=tf.dataset.talentFilter;document.querySelectorAll('[data-talent-filter]').forEach(x=>x.classList.toggle('selected',x===tf));renderTalentList();return}
 const c=e.target.closest('[data-copy]');if(c){const m=DATA.macros[Number(c.dataset.copy)];if(!m)return;try{await navigator.clipboard.writeText(m.code);showToast('Makro kopiert.')}catch(err){const range=document.createRange();range.selectNodeContents(document.getElementById('macro-'+c.dataset.copy));const selection=window.getSelection();selection.removeAllRanges();selection.addRange(range);showToast('Makro markiert – bitte manuell kopieren.')}return}
 });
 document.addEventListener('input',function(e){if(e.target.id==='task-search'){currentQuery=e.target.value;renderTaskList(currentFilter,currentQuery)}if(e.target.id==='talent-level'){const n=Number(e.target.value);if(Number.isInteger(n)&&n>=Number(e.target.min)&&n<=Number(e.target.max)){talentState.level=n;renderTalentList()}}});
 document.addEventListener('change',function(e){if(e.target.id==='talent-mode'){talentState.mode=e.target.value==="legacy"?"legacy":"normal";talentState.level=Math.min(talentState.mode==="legacy"?58:60,Math.max(talentState.mode==="legacy"?8:10,talentState.level));document.getElementById('talent-level').value=talentState.level;renderTalentList()}});
 let hideToast;function showToast(msg){const el=document.getElementById('toast');el.textContent=msg;el.hidden=false;clearTimeout(hideToast);hideToast=setTimeout(()=>el.hidden=true,2900)}
-renderHome();renderLeveling();renderTasks();renderDungeons();renderTalents();renderProfessionsV2();renderGear();renderTools();renderBooks();
+renderHome();renderLeveling();renderTasks();renderDungeons();renderTalents();renderProfessionsV2();renderGearV2();renderTools();renderBooks();
 navigate((location.hash||'#home').slice(1));
 window.addEventListener('hashchange',function(){navigate((location.hash||'#home').slice(1))});
 if ("serviceWorker" in navigator && location.protocol === "https:") {
