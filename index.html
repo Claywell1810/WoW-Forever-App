@@ -42,7 +42,7 @@
   <div id="gear" class="section"></div>
   <div id="tools" class="section"></div>
   <div id="books" class="section"></div>
-  <footer class="footer">Stand: 12. November 2026 · Diese Webansicht ist ein <strong>Snapshot</strong> des bestätigten GitHub-Trackers, keine Live-Synchronisation. Fortschritte bitte weiterhin im Chat melden; dann wird der Tracker aktualisiert und die Dashboard-Datei kann mitgezogen werden. Keine lokalen Änderungen werden als Spielstand gespeichert.</footer>
+  <footer class="footer">Stand: 12. November 2026 · Diese Webansicht ist ein <strong>Snapshot</strong> des bestätigten GitHub-Trackers, keine Live-Synchronisation. Neue Spielfortschritte werden wie vereinbart am Ende der Sitzung in beiden GitHub-Repositories gespeichert. Keine lokalen Änderungen werden als Spielstand gespeichert.</footer>
 </main>
 </div>
 <nav class="mobile-nav" aria-label="Mobile Navigation">
@@ -216,7 +216,9 @@ document.getElementById('dungeons').innerHTML=heading("Dungeon-Guide","Instanzen
 '<div class="card span4">'+cardHead("Heiler-Vorbereitung")+'<div class="guide-steps"><div class="guide-step"><strong>Vorher Quests mitnehmen</strong><p>Doppelte Wege vermeiden, vor allem nach Silberwald/Unterstadt.</p></div><div class="guide-step"><strong>Mana und Heilränge</strong><p>Trinken und kleinere Heilränge bereithalten; nicht jeden Schaden maximal heilen.</p></div><div class="guide-step"><strong>Gruppe im Blick</strong><p>Tank, HoTs und Reichweite kontrollieren. Die Stufenbereiche sind Orientierungswerte, keine Eintrittsgarantien.</p></div></div></div></div>';
 }
 function renderTasks(){
-document.getElementById('tasks').innerHTML=heading('Quests & Dungeons','Spoilerarm · bestätigte Fortschritte und offene Pläne')+
+document.getElementById('tasks').innerHTML=heading('Questguide','Aktuelle Ziele und offene Questfragen · spoilerarm')+
+'<div class="guide-hint"><strong>Jetzt sinnvoll:</strong> Passende Aufgaben im Steinkrallengebirge, Eschental und im südlichen Brachland bündeln. Rote oder zu schwere Quests verschieben. Für Burg Schattenfang zuerst die Horde-Quests im Dungeon-Tab anschauen.</div>'+
+'<div class="guide-steps" style="margin-bottom:15px"><div class="guide-step"><strong>1. Leichte Quests bevorzugen</strong><p>Gelbe und passende grüne Aufgaben mit kurzer Laufstrecke zuerst erledigen.</p></div><div class="guide-step"><strong>2. Quests bündeln</strong><p>Unterwegs Wildtiere kürschnern und mehrere Aufgaben in einem Gebiet abschließen.</p></div><div class="guide-step"><strong>3. Alte Aufgaben aufräumen</strong><p>Zentaurenarmschienen und Harpyienkrallen nur nach Nutzen und Wegstrecke bewerten; kein Abbruch oder Abschluss bestätigt.</p></div></div>'+
 '<div class="toolbar"><input id="task-search" class="search" type="search" placeholder="Aufgaben suchen …" aria-label="Aufgaben durchsuchen"><button class="filter selected" data-filter="all">Alle</button><button class="filter" data-filter="plan">Offen / geplant</button><button class="filter" data-filter="done">Erledigt</button><button class="filter" data-filter="unknown">Unklar</button></div><div class="list" id="task-list"></div>';
 renderTaskList('all','')
 }
