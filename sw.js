@@ -1,12 +1,10 @@
-/* Offline-Fallback nach einer erfolgreichen, autorisierten Sitzung.
-   Es werden nur freigegebene, eigene App-Dateien gespeichert. */
-const CACHE = "wow-forever-v1-20261112";
+/* GitHub-Pages-PWA: zuletzt online geladene App-Dateien auch offline anzeigen. */
+const CACHE = "wow-forever-v2-20261112-talents";
 const FILES = ["./", "./index.html", "./manifest.webmanifest", "./icon.svg", "./icon-192.png"];
 self.addEventListener("install", event => {
   event.waitUntil((async () => {
     const cache = await caches.open(CACHE);
-    // Cache asynchron aufbauen. Beim ersten Offline-Aufruf muss die App zuvor
-    // mit gültiger Access-Sitzung vollständig geladen worden sein.
+    // App beim Update frisch vom öffentlichen GitHub-Pages-Host cachen.
     await Promise.allSettled(FILES.map(async path => {
       const response = await fetch(path, { cache: "no-store" });
       if (response.ok && !response.redirected && new URL(response.url).origin === self.location.origin) {
@@ -37,7 +35,7 @@ self.addEventListener("fetch", event => {
       return response;
     } catch {
       const cache = await caches.open(CACHE);
-      return (await cache.match(event.request)) || (event.request.mode === "navigate" ? await cache.match("./index.html") : null) || new Response("Offline – bitte einmal online mit Cloudflare Access anmelden.", {status:503,headers:{"Content-Type":"text/plain; charset=utf-8"}});
+      return (await cache.match(event.request)) || (event.request.mode === "navigate" ? await cache.match("./index.html") : null) || new Response("Offline – bitte einmal online die App öffnen.", {status:503,headers:{"Content-Type":"text/plain; charset=utf-8"}});
     }
   })());
 });
