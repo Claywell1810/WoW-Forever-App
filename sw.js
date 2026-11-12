@@ -1,6 +1,6 @@
 /* GitHub-Pages-PWA: zuletzt online geladene App-Dateien auch offline anzeigen. */
-const CACHE = "wow-forever-v5-20261112-spellbook";
-const FILES = ["./", "./index.html", "./manifest.webmanifest", "./icon.svg", "./icon-192.png", "./spellbook.js"];
+const CACHE = "wow-forever-v6-20261112-ux";
+const FILES = ["./", "./index.html", "./manifest.webmanifest", "./icon.svg", "./icon-192.png", "./spellbook.js", "./ux.js", "./ux.css"];
 self.addEventListener("install", event => {
   event.waitUntil((async () => {
     const cache = await caches.open(CACHE);
