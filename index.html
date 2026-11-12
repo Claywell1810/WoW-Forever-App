@@ -236,6 +236,48 @@ document.getElementById('gear').innerHTML=heading('Ausrüstung','Zuletzt gemelde
 heading('Sets und Handwerk','Erhalten ist nicht gleich ausgerüstet')+'<div class="list">'+DATA.sets.map(x=>infoCard(x)).join('')+
 infoCard({title:'Deviatschuppengürtel',status:'confirmed',description:'Bei Lederverarbeitung 91 hergestellt; Tragen nicht bestätigt.'})+'</div>'
 }
+
+const GUIDED_PROF=[
+["Lederverarbeitung","91/150","Als Nächstes: feine Ledergürtel bis ca. 100",[
+["91–100","Feiner Ledergürtel","Je 6× leichtes Leder + 2× grober Faden; einige behalten."],
+["100–115","Leichte Lederhose","Je 10× leichtes Leder + 1× gegerbter leichter Balg + 1× feiner Faden."],
+["115–125","Dunkler Ledergürtel","Je 1× feiner Ledergürtel + 1× gegerbter mittlerer Balg + 2× feiner Faden + Farbstoff."],
+["125–150","Schweres Leder, Bälge und Rüstungssets","Skillfarbe/Kosten prüfen; Expertenrang bei Una in Donnerfels lernen."]
+],"https://mobalytics.gg/wow-forever/guides/leatherworking-profession-guide"],
+["Kürschnerei","141 (zuletzt)","Expertenrang prüfen, Wildtiere unterwegs kürschnern",[
+["Vor 150","Expertentraining","Dranh in Camp Taurajo oder Mooranta in Donnerfels; ab 125 möglich."],
+["141–175","Eschental und passende Questtiere","Nach dem Plündern kürschnern; gefährliche Gebiete vermeiden."],
+["175–225","Später: höherstufige Wildtiere","Z. B. Tausend Nadeln, erst mit passendem Charakterlevel."]
+],"https://www.wowhead.com/forever/guide/professions/skinning/overview-leveling"],
+["Erste Hilfe","81 (zuletzt)","Jetzt Wollverband bis 115",[
+["81–115","Wollverband","1× Wollstoff je Verband."],
+["115–150","Schwerer Wollverband","2× Wollstoff je Verband."],
+["Ab 150","Expertenbuch","Später Balai Lok'Wein in Brackenwall, Düstermarschen."]
+],"https://www.wowhead.com/forever/guide/professions/first-aid/overview"],
+["Kochen","225/225","Aktuelle Obergrenze erreicht",[
+["Jetzt","Nichts zusätzlich kaufen","Nächster Rang erst mit Charakterlevel 35."],
+["Ab Level 35","Clamlette Surprise","Quest von Dirge Quikcleave in Gadgetzan, Tanaris."],
+["Vorher besorgen","Questmaterialien","12× Riesenei, 10× würziges Muschelfleisch, 20× Alterac-Schweizer; später prüfen."]
+],"https://www.wowhead.com/forever/guide/professions/cooking/overview-leveling"]
+];
+let guidedProf=0;
+function renderProfessionsV2(){
+document.getElementById("professions").innerHTML=heading("Berufe leveln","Levelwege ab deinen bestätigten Skillwerten")+
+'<div class="card">'+DATA.professions.map(professionRow).join("")+'</div>'+
+heading("Nächster Schritt","Wähle den Beruf")+
+'<div class="toolbar">'+GUIDED_PROF.map((x,i)=>'<button class="filter'+(guidedProf===i?" selected":"")+'" data-pick-prof="'+i+'">'+esc(x[0])+'</button>').join("")+'</div>'+
+'<div id="guided-prof"></div>';
+renderGuidedProf();
+}
+function renderGuidedProf(){
+const el=document.getElementById("guided-prof");if(!el)return;
+const d=GUIDED_PROF[guidedProf];
+el.innerHTML='<div class="guide-hint"><strong>'+esc(d[0])+' · '+esc(d[1])+'</strong><p>'+esc(d[2])+'</p></div>'+
+'<div class="guide-steps">'+d[3].map(x=>'<div class="guide-step"><span class="guide-pill">'+esc(x[0])+'</span><strong>'+esc(x[1])+'</strong><p>'+esc(x[2])+'</p></div>').join("")+'</div>'+
+'<div class="notice">Vorschläge aus Forever-Guides: Rezeptfarben, Ausbildungsrang und Materialkosten bitte im Spiel prüfen. Nichts davon wird als bereits gelernt markiert.</div>'+
+'<div class="guide-links"><a href="'+esc(d[4])+'" target="_blank" rel="noopener">Aktuelle Quelle öffnen ↗</a></div>';
+}
+
 function renderTools(){
 document.getElementById('tools').innerHTML=heading('Makros & Controller','Bestätigte Makros sind gekennzeichnet')+
 '<div class="grid"><div class="card span6">'+cardHead('DualSense')+
@@ -269,13 +311,14 @@ let currentFilter='all';let currentQuery='';
 document.addEventListener('click',async function(e){
 const v=e.target.closest('[data-view]');if(v){navigate(v.dataset.view);return}
 const f=e.target.closest('[data-filter]');if(f){currentFilter=f.dataset.filter;document.querySelectorAll('[data-filter]').forEach(x=>x.classList.toggle('selected',x===f));renderTaskList(currentFilter,currentQuery);return}
+const pp=e.target.closest('[data-pick-prof]');if(pp){guidedProf=Number(pp.dataset.pickProf);document.querySelectorAll('[data-pick-prof]').forEach(x=>x.classList.toggle('selected',x===pp));renderGuidedProf();return}
 const tf=e.target.closest('[data-talent-filter]');if(tf){talentState.filter=tf.dataset.talentFilter;document.querySelectorAll('[data-talent-filter]').forEach(x=>x.classList.toggle('selected',x===tf));renderTalentList();return}
 const c=e.target.closest('[data-copy]');if(c){const m=DATA.macros[Number(c.dataset.copy)];if(!m)return;try{await navigator.clipboard.writeText(m.code);showToast('Makro kopiert.')}catch(err){const range=document.createRange();range.selectNodeContents(document.getElementById('macro-'+c.dataset.copy));const selection=window.getSelection();selection.removeAllRanges();selection.addRange(range);showToast('Makro markiert – bitte manuell kopieren.')}return}
 });
 document.addEventListener('input',function(e){if(e.target.id==='task-search'){currentQuery=e.target.value;renderTaskList(currentFilter,currentQuery)}if(e.target.id==='talent-level'){const n=Number(e.target.value);if(Number.isInteger(n)&&n>=Number(e.target.min)&&n<=Number(e.target.max)){talentState.level=n;renderTalentList()}}});
 document.addEventListener('change',function(e){if(e.target.id==='talent-mode'){talentState.mode=e.target.value==="legacy"?"legacy":"normal";talentState.level=Math.min(talentState.mode==="legacy"?58:60,Math.max(talentState.mode==="legacy"?8:10,talentState.level));document.getElementById('talent-level').value=talentState.level;renderTalentList()}});
 let hideToast;function showToast(msg){const el=document.getElementById('toast');el.textContent=msg;el.hidden=false;clearTimeout(hideToast);hideToast=setTimeout(()=>el.hidden=true,2900)}
-renderHome();renderLeveling();renderTasks();renderDungeons();renderTalents();renderProfessions();renderGear();renderTools();renderBooks();
+renderHome();renderLeveling();renderTasks();renderDungeons();renderTalents();renderProfessionsV2();renderGear();renderTools();renderBooks();
 navigate((location.hash||'#home').slice(1));
 window.addEventListener('hashchange',function(){navigate((location.hash||'#home').slice(1))});
 if ("serviceWorker" in navigator && location.protocol === "https:") {
