@@ -1,5 +1,5 @@
 /* GitHub-Pages-PWA: zuletzt online geladene App-Dateien auch offline anzeigen. */
-const CACHE = "wow-forever-v2-20261112-talents";
+const CACHE = "wow-forever-v3-20261112-guide";
 const FILES = ["./", "./index.html", "./manifest.webmanifest", "./icon.svg", "./icon-192.png"];
 self.addEventListener("install", event => {
   event.waitUntil((async () => {
