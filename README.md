@@ -28,6 +28,10 @@ Der **maßgebliche Charakterstand bleibt ausschließlich** im privaten WoW-Forev
 Die Webseite ist öffentlich erreichbar. Keine Passwörter, privaten API-Schlüssel oder personenbezogenen Informationen in den App-Dateien speichern.
 
 
+## Dungeon-Komplettierungsziel bis 35
+
+Im Dungeontab gibt es 17 einzeln abhackbare Dungeon-/Klosterziele, einschließlich der schwieriger erreichbaren Allianz-Instanzen. Die beiden ausdrücklich abgeschlossenen Dungeons **Burg Schattenfang** und **Tiefschwarze Grotte** bleiben als bestätigte Etappen hinterlegt. **Höhlen des Wehklagens** wurden bereits gespielt, aber der vollständige Abschluss ist nicht gesondert bestätigt. Die Questabgaben werden separat geprüft. Die Checkliste setzt oder löscht vorhandene lokale Häkchen nicht; neue Einträge sind zunächst offen. Das Ziel, alle Dungeons auch über Stufe 35 hinaus zu spielen, steht im privaten Charaktertracker.
+
 ## Abhakbare Spielfortschritte
 
 Die iPhone-App speichert **Zwischenziele bis Stufe 35, individuelle Talentpunkte und Zauberränge** in ihrem lokalen Browser-Speicher (`localStorage`). Häkchen bleiben bei normalen App-Updates erhalten, werden aber **nicht automatisch mit GitHub synchronisiert**. Bei neuen, eindeutig bestätigten Meilensteinen setzt der App-Snapshot nur bislang unentschiedene Häkchen als Startwert. Beim Löschen der Web-App-Daten oder auf einem anderen Gerät sind sie nicht automatisch vorhanden.
