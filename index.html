@@ -65,11 +65,11 @@
     <button data-view="tools"><span class="glyph">⌘</span>Makros & Controller</button>
     <button data-view="books"><span class="glyph">▤</span>Bücher & Sammlung</button>
   </nav>
-  <div class="sidefoot">Datenstand: <strong>12.11.2026</strong><br>Quelle: character_tracker.md<a href="https://github.com/Claywell1810/WoW-Forever-Guide/blob/main/character_tracker.md">Charaktertracker ↗</a><a href="https://github.com/Claywell1810/WoW-Forever-Guide/blob/main/guide.md">Ausführlicher Guide ↗</a></div>
+  <div class="sidefoot">Datenstand: <strong>13.11.2026</strong><br>Quelle: character_tracker.md<a href="https://github.com/Claywell1810/WoW-Forever-Guide/blob/main/character_tracker.md">Charaktertracker ↗</a><a href="https://github.com/Claywell1810/WoW-Forever-Guide/blob/main/guide.md">Ausführlicher Guide ↗</a></div>
 </aside>
 <main class="main">
   <div class="topline"><span><span class="dot"></span> Persönlicher Charakterguide · Horde · PvE</span><a class="button secondary" href="https://github.com/Claywell1810/WoW-Forever-Guide/blob/main/character_tracker.md">Tracker ↗</a></div>
-  <header class="hero"><span class="eyebrow">World of Warcraft · Forever</span><h1>Dein Abenteuer.<br><span class="gold">Ein Überblick.</span></h1><p>Alle wichtigen Fortschritte, nächsten Schritte und bewährten Controller-Makros an einem Ort. Spoilerarm und nach bestätigtem Spielstand.</p><div class="badges"><span class="pill">Stufe 22</span><span class="pill">Horde · Druide</span><span class="pill">Himmelsgeborener · Windformer</span><span class="pill plan">Wrathcat / Heiler</span></div></header>
+  <header class="hero"><span class="eyebrow">World of Warcraft · Forever</span><h1>Dein Abenteuer.<br><span class="gold">Ein Überblick.</span></h1><p>Alle wichtigen Fortschritte, nächsten Schritte und bewährten Controller-Makros an einem Ort. Spoilerarm und nach bestätigtem Spielstand.</p><div class="badges"><span class="pill">Stufe 25</span><span class="pill">Horde · Druide</span><span class="pill">Himmelsgeborener · Windformer</span><span class="pill plan">Wrathcat / Heiler</span></div></header>
   <nav class="guide-nav" aria-label="Guide-Kategorien"><button data-view="leveling">Leveln</button><button data-view="tasks">Quests</button><button data-view="dungeons">Dungeons</button><button data-view="professions">Berufe leveln</button><button data-view="gear">Gear craften</button><button data-view="talents">Talente</button><button data-view="spells">Zauber</button></nav><div id="home" class="section active"></div>
   <div id="leveling" class="section"></div><div id="tasks" class="section"></div><div id="dungeons" class="section"></div>
   <div id="talents" class="section"></div><div id="spells" class="section"></div>
@@ -89,7 +89,7 @@
     </div>
     <div class="notice">Deine Häkchen und der gespeicherte Spielstand werden durch diese Navigation nicht verändert.</div>
   </div>
-  <footer class="footer">Stand: 12. November 2026 · Diese Webansicht ist ein <strong>Snapshot</strong> des bestätigten GitHub-Trackers, keine Live-Synchronisation. Neue Spielfortschritte werden wie vereinbart am Ende der Sitzung in beiden GitHub-Repositories gespeichert. Keine lokalen Änderungen werden als Spielstand gespeichert.</footer>
+  <footer class="footer">Stand: 13. November 2026 · Diese Webansicht ist ein <strong>Snapshot</strong> des bestätigten GitHub-Trackers, keine Live-Synchronisation. Neue Spielfortschritte werden wie vereinbart am Ende der Sitzung in beiden GitHub-Repositories gespeichert. Keine lokalen Änderungen werden als Spielstand gespeichert.</footer>
 </main>
 </div>
 <nav class="mobile-nav" aria-label="Hauptnavigation">
@@ -111,27 +111,34 @@ const DATA={
     {name:'Erste Hilfe',value:81,goal:150,goalLabel:'81',note:'Nächste Rezepte und Stoffkosten prüfen · Zielskala 150',status:'confirmed'}
   ],
   quests:[
-    {title:'Burg Schattenfang',type:'Dungeon',status:'plan',description:'Als nächster Dungeon vorgesehen. Am 11.11. keine Gruppe gefunden; Abschluss nicht bestätigt.'},
-    {title:'Quests für weitere Instanzen sammeln',type:'Dungeon',status:'plan',description:'Wunsch aus dem letzten Gespräch; mögliche Horde-Quests und Anforderungen vorab prüfen.'},
-    {title:'Steinkrallengebirge',type:'Gebiet',status:'plan',description:'Als nächste Level-Alternative erwägen; Anreise und Flugpunkt noch nicht bestätigt.'},
+    {title:'Burg Schattenfang',type:'Dungeon',status:'done',description:'Am 12.11.2026 ausdrücklich als abgeschlossen gemeldet. Ob alle einzelnen Dungeonquests abgegeben sind, ist offen.'},
+    {title:'Tiefschwarze Grotte',type:'Dungeon',status:'done',description:'Am 12.11.2026 ausdrücklich abgeschlossen. Einzelne Questabgaben dürfen daraus nicht abgeleitet werden.'},
+    {title:'Die heilige Flamme',type:'Quest',status:'confirmed',description:'Die fehlende Phiole wurde beschafft und das blockierte Questziel geschafft. Abgabe beim NPC noch nicht bestätigt.'},
+    {title:'Ärger in der Tiefe',type:'Quest',status:'confirmed',description:'Bei Tsunaman in Sonnenfels (Steinkrallengebirge) angenommen. Abgabe bei Je’neu Sancrea in Zoram’gar noch nicht bestätigt.'},
+    {title:'Nächster Dungeon: Kral der Klingenhauer',type:'Dungeon',status:'plan',description:'Als nächste Instanz nach Schattenfang und Tiefschwarzer Grotte prüfen; Stufenbereich, Horde-Quests und Gruppe abstimmen.'},
+    {title:'Steinkrallengebirge / Sonnenfels',type:'Gebiet',status:'done',description:'Steinkrallengebirge besucht und mit Tsunaman in Sonnenfels gesprochen. Flugpunkt nicht ausdrücklich bestätigt.'},
     {title:'Camp Taurajo / Flugpunkt',type:'Reise',status:'unknown',description:'Südliches Brachland ist besucht. Freischaltung dieses Flugpunkts nicht ausdrücklich bestätigt.'},
-    {title:'Tausend Nadeln',type:'Gebiet',status:'plan',description:'Kurz betreten und als derzeit zu schwer eingeschätzt. Für später vormerken.'},
+    {title:'Tausend Nadeln',type:'Gebiet',status:'plan',description:'Kurz betreten und zunächst als zu schwer eingeschätzt. Später nach Wunsch erneut prüfen.'},
     {title:'Brachland: alte Quests',type:'Questlog',status:'unknown',description:'Zentaurenarmschienen, Harpyienkrallen und andere Altquests bei Bedarf prüfen; kein Abbruch bestätigt.'},
     {title:'Wassergestalt',type:'Druidenquest',status:'done',description:'Am 11.11. ausdrücklich abgeschlossen.'},
-    {title:'Höhlen des Wehklagens',type:'Dungeon',status:'done',description:'Bereits gespielt. Kein zusätzlicher Abschlussstatus behauptet.'},
+    {title:'Höhlen des Wehklagens',type:'Dungeon',status:'done',description:'Bereits gespielt. Kein zusätzlicher Questabschluss behauptet.'},
     {title:'Südliches Brachland',type:'Gebiet',status:'done',description:'Besucht und einige Quests erledigt; einzelne Questnamen nicht erfasst.'}
   ],
   slots:[
-    {slot:'Brust',item:'Zeremonieller Lederharnisch'},
+    {slot:'Brust · Solo',item:'Brustschutz des Träumers'},
+    {slot:'Handgelenke',item:'Ersatzteilbindungen (zuletzt ausgerüstet gezeigt)'},
     {slot:'Beine',item:'Giftzahn-Gamaschen'},
     {slot:'Hände',item:'Giftzahn-Handschuhe'},
-    {slot:'Füße',item:'Abgrundläufer'}
+    {slot:'Füße',item:'Abgrundläufer (zuletzt bestätigt)'}
   ],
   sets:[
-    {title:'Giftzahn',status:'confirmed',description:'Zwei Teile bekannt: Gamaschen und Handschuhe; zuletzt getragen.'},
-    {title:'Fäulnisheiler',status:'done',description:'Drei Teile gesammelt (Schärpe, Gamaschen, Handschuhe). Weiterer Setaufbau bewusst verworfen.'},
-    {title:'Lederrüstung der Weisheit',status:'plan',description:'Gewünschte Heilbrust. Erwerb/Herstellung nicht bestätigt; frühere AH-Schätzung ca. 36 Silber.'},
-    {title:'Lederrüstung des Verteidigers',status:'plan',description:'Gewünschte Solo-Brust. Muster bisher nicht bestätigt; historischer Preis 45 Silber.'}
+    {title:'Brustschutz des Träumers',status:'confirmed',description:'Als getragen bestätigt: 106 Rüstung, +10 Stärke, +5 Ausdauer, +11 Willenskraft. Wrathcat-Solo-Brustteil.'},
+    {title:'Lederrüstung der Weisheit',status:'confirmed',description:'Selbst hergestellt, als Heil-Brustteil im Inventar: +5 Intelligenz, +3 Willenskraft, +3 Ausdauer, +15 Zauberheilung, +5 Zauberschaden; Werte ohne Verzauberung.'},
+    {title:'Lederrüstung des Verteidigers',status:'confirmed',description:'Selbst hergestellt und zeitweise getragen. Für den Brustschutz des Träumers ersetzt.'},
+    {title:'Giftzahn',status:'confirmed',description:'Handschuhe und Gamaschen (2/5). Bonus: +10 Intelligenz. Beide zuletzt als angelegt gezeigt.'},
+    {title:'Armschützer des Kultisten',status:'confirmed',description:'Erhalten; +7 Ausdauer und +10 Angriffskraft. Als Wechseloption empfohlen, Anlegen nicht bestätigt.'},
+    {title:'Nagakampfhandschuhe',status:'confirmed',description:'Erhalten; +15 Zauberheilung und +5 Zauberschaden. Gegen die Giftzahn-Handschuhe mit Setbonus abwägen; Anlegen nicht bestätigt.'},
+    {title:'Fäulnisheiler',status:'done',description:'Früher drei Teile gesammelt. Weiterer Setaufbau bewusst verworfen.'}
   ],
   books:[
     {title:'Geheimnisse der Träumer',status:'confirmed',description:'Im Zusammenhang mit Höhlen des Wehklagens gefunden. Abgabe nicht bestätigt.'},
@@ -169,7 +176,7 @@ const DATA={
     {title:'Mondfeuer + Rückverwandlung',status:'plan',note:'Besprochener Entwurf. In WoW Forever prüfen.',code:['#showtooltip Mondfeuer','/cancelform [form]','/cast Mondfeuer'].join('\n')}
   ]
 };
-const MILESTONES=[{"key":"leveling","title":"Leveln","items":[["level-25","23–25","Stufe 25 erreichen","Bei den aktuellen 20er-Gebieten bleiben; passende Quests statt roter Gegner priorisieren."],["level-28","26–28","Stufe 28 erreichen","Neue Talente, Spells und mögliche Gebiete prüfen."],["level-30","29–30","Stufe 30 erreichen","Ausrüstung und nächstes Gebiet erneut bewerten."],["level-35","31–35","Stufe 35 erreichen","Nächste Berufs-Ausbildung und die kommende Levelphase vorbereiten."]]},{"key":"tasks","title":"Quests","items":[["quests-stonetalon","22–25","Steinkrallengebirge ausprobieren","Horde-Aufgaben und Flugpunkt prüfen; Besuch bisher nicht bestätigt."],["quests-barrens","22–26","Offene Quests im südlichen Brachland sortieren","Mit Kürschnerei verbinden und lange Umwege vermeiden."],["quests-ashenvale","25–29","Passende Eschental-Quests bearbeiten","Nur geeignete Gegner und Aufgaben mitnehmen."],["quests-thousand","27–31","Tausend Nadeln erneut prüfen","Erst zurückkehren, wenn Gegner und Questlevel angenehm sind."],["quests-desolace","30–35","Desolace als neues Questgebiet prüfen","Quests und Flugpunkt nach Bedarf erschließen."]]},{"key":"dungeons","title":"Dungeons","items":[["dung-sfkquests","22–26","Horde-Quests für Burg Schattenfang sammeln","Drei Quests im Dungeontab prüfen; Annahme bislang nicht bestätigt."],["dung-sfk","22–28","Burg Schattenfang mit einer Gruppe spielen","Als Heiler, wenn eine Gruppe zustande kommt."],["dung-bfd","25–31","Tiefschwarze Grotte vorbereiten","Vorbedingungen, Horde-Quests und passende Gruppenstufe prüfen."],["dung-30s","30–35","Passende Folgeinstanz auswählen","Zum Beispiel Kral der Klingenhauer, sofern Level, Zugang und Gruppe passen."]]},{"key":"professions","title":"Berufe","items":[["prof-skinexpert","22–26","Kürschnerei über 150 freischalten","Expertenrang beim Trainer prüfen; letzter belegter Skill 141."],["prof-leather100","22–26","Lederverarbeitung 100 erreichen","Günstige Rezepte für die nächsten 9 Fertigkeitspunkte nutzen."],["prof-aid115","22–28","Erste Hilfe 115 erreichen","Wollverband herstellen, Stoffkosten im Blick behalten."],["prof-leather125","25–30","Lederverarbeitung 125 erreichen","Fertige Gürtel und Bälge bei der Rezeptwahl einplanen."],["prof-skin175","27–33","Kürschnerei 175 erreichen","Mit passenden Wildtieren und Questgebieten verbinden."],["prof-aid150","28–33","Erste Hilfe 150 erreichen","Schweren Wollverband und weitere Ausbildung prüfen."],["prof-leather150","29–35","Lederverarbeitung 150 erreichen","Expertenrang rechtzeitig lernen; weitere Craft-Ideen vorbereiten."],["prof-cook35","35","Kochen: nächsten Ausbildungsrang prüfen","Kochen 225/225 ist bestätigt; auf Stufe 35 die nächste Freischaltung angehen."]]},{"key":"gear","title":"Gear craften","items":[["gear-twochests","22–25","Wunsch-Brustrüstungen vergleichen","Weisheit fürs Heilen und Verteidiger fürs Solo-Leveln – Werte/Materialpreise prüfen."],["gear-upgrade","24–28","Ein sinnvolleres Brustteil ausrüsten","Craften oder AH kaufen, nur wenn es eine Verbesserung ist."],["gear-kit","26–30","Rüstungsset oder anderes kleines Craft prüfen","Herstellbares Zwischenupgrade wählen, wenn Materialkosten passen."],["gear-heal","30–33","Heiler-Ausrüstung aktualisieren","Mana- und Heilwerte für den nächsten Dungeon vergleichen."],["gear-solo","33–35","Solo-Ausrüstung für Stufe 35 überprüfen","Waffe, Brust, Hosen und Handgelenke auf echte Upgrades prüfen."]]}];
+const MILESTONES=[{"key":"leveling","title":"Leveln","items":[["level-25","23–25","Stufe 25 erreicht","Am 12.11. ausdrücklich bestätigt; neue Zauber, Talente und Dungeonoptionen prüfen."],["level-28","26–28","Stufe 28 erreichen","Neue Talente, Spells und mögliche Gebiete prüfen."],["level-30","29–30","Stufe 30 erreichen","Ausrüstung und nächstes Gebiet erneut bewerten."],["level-35","31–35","Stufe 35 erreichen","Nächste Berufs-Ausbildung und die kommende Levelphase vorbereiten."]]},{"key":"tasks","title":"Quests","items":[["quests-stonetalon","22–25","Steinkrallengebirge und Sonnenfels besuchen","Bereits erfolgt; Tsunaman und die Annahme von „Ärger in der Tiefe“ bestätigt."],["quests-barrens","22–26","Offene Quests im südlichen Brachland sortieren","Mit Kürschnerei verbinden und lange Umwege vermeiden."],["quests-ashenvale","25–29","Passende Eschental-Quests bearbeiten","Nur geeignete Gegner und Aufgaben mitnehmen."],["quests-thousand","27–31","Tausend Nadeln erneut prüfen","Erst zurückkehren, wenn Gegner und Questlevel angenehm sind."],["quests-desolace","30–35","Desolace als neues Questgebiet prüfen","Quests und Flugpunkt nach Bedarf erschließen."]]},{"key":"dungeons","title":"Dungeons","items":[["dung-sfkquests","22–26","Questabgaben für Burg Schattenfang prüfen","Dungeon abgeschlossen; Annahme und Abgabe jeder einzelnen Quest nicht dokumentiert."],["dung-sfk","22–28","Burg Schattenfang abschließen","Am 12.11.2026 als abgeschlossen bestätigt."],["dung-bfd","25–31","Tiefschwarze Grotte abschließen","Am 12.11.2026 als abgeschlossen bestätigt."],["dung-bfdquests","25–30","Questabgaben für Tiefschwarze Grotte prüfen","„Ärger in der Tiefe“ angenommen; Folge- und Dungeonquests nicht alle als abgegeben bestätigt."],["dung-30s","30–35","Nächste Instanz vorbereiten","Kral der Klingenhauer oder andere passende Instanz nach Gruppenstufe und Quests prüfen."]]},{"key":"professions","title":"Berufe","items":[["prof-skinexpert","22–26","Kürschnerei über 150 freischalten","Expertenrang beim Trainer prüfen; letzter belegter Skill 141."],["prof-leather100","22–26","Lederverarbeitung 100 erreichen","Günstige Rezepte für die nächsten 9 Fertigkeitspunkte nutzen."],["prof-aid115","22–28","Erste Hilfe 115 erreichen","Wollverband herstellen, Stoffkosten im Blick behalten."],["prof-leather125","25–30","Lederverarbeitung 125 erreichen","Fertige Gürtel und Bälge bei der Rezeptwahl einplanen."],["prof-skin175","27–33","Kürschnerei 175 erreichen","Mit passenden Wildtieren und Questgebieten verbinden."],["prof-aid150","28–33","Erste Hilfe 150 erreichen","Schweren Wollverband und weitere Ausbildung prüfen."],["prof-leather150","29–35","Lederverarbeitung 150 erreichen","Expertenrang rechtzeitig lernen; weitere Craft-Ideen vorbereiten."],["prof-cook35","35","Kochen: nächsten Ausbildungsrang prüfen","Kochen 225/225 ist bestätigt; auf Stufe 35 die nächste Freischaltung angehen."]]},{"key":"gear","title":"Gear craften","items":[["gear-twochests","22–25","Beide Leder-Brustrüstungen herstellen und vergleichen","Weisheit und Verteidiger selbst hergestellt; beide mit dem Brustschutz des Träumers verglichen."],["gear-upgrade","24–28","Ein besseres Brustteil anlegen","Brustschutz des Träumers als ausgerüstet auf Screenshot bestätigt."],["gear-kit","26–30","Rüstungsset oder anderes kleines Craft prüfen","Herstellbares Zwischenupgrade wählen, wenn Materialkosten passen."],["gear-heal","30–33","Heiler-Ausrüstung aktualisieren","Mana- und Heilwerte für den nächsten Dungeon vergleichen."],["gear-solo","33–35","Solo-Ausrüstung für Stufe 35 überprüfen","Waffe, Brust, Hosen und Handgelenke auf echte Upgrades prüfen."]]}];
 const label={done:'Erledigt / erreicht',confirmed:'Bestätigt',plan:'Geplant',unknown:'Nicht bestätigt'};
 const cssStatus={done:'done',confirmed:'done',plan:'plan',unknown:'unknown'};
 const viewTitle={more:'Mehr',home:'Übersicht',leveling:'Leveln',tasks:'Quests',dungeons:'Dungeons',talents:'Talentplan',spells:'Zauber & Ränge',professions:'Berufe leveln',gear:'Gear craften',tools:'Makros & Controller',books:'Bücher & Sammlung'};
@@ -188,11 +195,23 @@ function readProgress(){
   }catch(_){return {milestones:{},talents:{},spells:{},settings:{}}}
 }
 const LOCAL_PROGRESS=readProgress();
+// Nur ausdrücklich bestätigte Etappen vorbelegen, wenn noch keine lokale Wahl existiert.
+// Gespeicherte true/false-Entscheidungen werden niemals überschrieben.
+const CONFIRMED_MILESTONE_DEFAULTS=["level-25","quests-stonetalon","dung-sfk","dung-bfd","gear-twochests","gear-upgrade"];
+let seededConfirmedMilestones=false;
+for(const id of CONFIRMED_MILESTONE_DEFAULTS){
+  if(!Object.prototype.hasOwnProperty.call(LOCAL_PROGRESS.milestones,id)){
+    LOCAL_PROGRESS.milestones[id]=true;
+    seededConfirmedMilestones=true;
+  }
+}
+
 let progressSaveAvailable=true;
 function saveProgress(){
   try{localStorage.setItem(PROGRESS_KEY,JSON.stringify(LOCAL_PROGRESS));progressSaveAvailable=true}
   catch(_){progressSaveAvailable=false;showToast("Lokales Speichern nicht möglich – Browser-Speicher prüfen.")}
 }
+if(seededConfirmedMilestones)saveProgress();
 function milestoneData(key){return MILESTONES.find(x=>x.key===key)}
 function milestoneTotals(key){
   const x=milestoneData(key);
@@ -205,7 +224,7 @@ function milestoneHtml(key){
   return '<div class="milestone-wrap" data-milestone-panel="'+esc(key)+'"><div class="milestone-head"><strong>Entwicklungsplan bis Stufe 35</strong><span class="milestone-count">'+counts.done+'/'+counts.total+' erledigt</span></div>'+
   '<div class="milestone-progress" role="progressbar" aria-label="Etappen '+esc(m.title)+'" aria-valuemin="0" aria-valuemax="'+counts.total+'" aria-valuenow="'+counts.done+'"><span style="width:'+(100*counts.done/counts.total)+'%"></span></div>'+
   m.items.map(it=>{const done=LOCAL_PROGRESS.milestones[it[0]]===true;return '<label class="milestone-row'+(done?' done':'')+'"><input type="checkbox" data-milestone="'+esc(it[0])+'" data-category="'+esc(key)+'" '+(done?"checked":"")+'><span class="milestone-body"><span class="milestone-level">'+esc(it[1])+'</span><span class="milestone-row-title">'+esc(it[2])+'</span><span class="milestone-note">'+esc(it[3])+'</span></span></label>'}).join("")+
-  '<p class="mini">Häkchen werden nur auf diesem Gerät gespeichert – unabhängig vom bestätigten GitHub-Spielstand.</p></div>';
+  '<p class="mini">Häkchen werden auf diesem Gerät gespeichert. Bestätigte Etappen sind nur dann vorbelegt, wenn hier noch keine eigene Auswahl existierte.</p></div>';
 }
 
 function checkedProgressAsText(){
@@ -215,7 +234,7 @@ function checkedProgressAsText(){
  const date=new Date().toLocaleDateString("de-DE");
  return "WoW Forever – lokale Häkchen ("+date+")\n"+
  "Talentmodell: "+(talentState.mode==="legacy"?"Talentiert Rang 2 (ab Stufe 8)":"Normal (ab Stufe 10)")+"\n"+
- "Nur manuell abgehakte Punkte, noch kein GitHub-Spielstand.\n\n"+
+ "Lokale Häkchen (teilweise durch bestätigten Spielstand vorbelegt), kein automatischer WoW-Kontozugriff.\n\n"+
  "Talentpunkte ("+selectedTalents.length+"/51):\n"+
  (selectedTalents.map(p=>"- Stufe "+(p.level+talentOffset())+": "+p.name+" "+p.rank+"/"+p.max).join("\n")||"(keine angehakt)")+
  "\n\nEntwicklungsziele bis 35:\n"+
@@ -243,16 +262,16 @@ function addMilestonesToView(key){
 
 function renderHome(){
 const p=DATA.professions;
-document.getElementById('home').innerHTML=heading('Auf einen Blick','Bestätigter Stand · 12.11.2026')+
+document.getElementById('home').innerHTML=heading('Auf einen Blick','Bestätigter Stand · 13.11.2026')+
 '<div class="grid statGrid">'+
-'<div class="card span3"><div class="kicker">Charakterstufe</div><div class="metric">22 <small>/ ?</small></div><div class="mini">Letzte Bestätigung: 11.11.</div></div>'+
+'<div class="card span3"><div class="kicker">Charakterstufe</div><div class="metric">25 <small>/ ?</small></div><div class="mini">Bestätigt: 12./13.11.</div></div>'+
 '<div class="card span3"><div class="kicker">Kochkunst</div><div class="metric gold">225</div><div class="mini">Aktuelle Obergrenze erreicht</div></div>'+
 '<div class="card span3"><div class="kicker">Wassergestalt</div><div class="metric">✓</div><div class="mini">Quest abgeschlossen</div></div>'+
-'<div class="card span3"><div class="kicker">Letztes Gebiet</div><div class="metric" style="font-size:20px;margin:12px 0">Südl. Brachland</div><div class="mini">Genauer Standort offen</div></div>'+
+'<div class="card span3"><div class="kicker">Letztes Gebiet</div><div class="metric" style="font-size:20px;margin:12px 0">Steinkrallen / Eschental</div><div class="mini">Genauer Standort jetzt offen</div></div>'+
 '</div>'+heading('Deine nächsten Schritte','Vorschläge, keine erledigten Quests')+
 '<div class="grid"><div class="card span8"><div class="tasks">'+
-'<div class="task"><span class="number">1</span><div><strong>Burg Schattenfang</strong><p>Neue Gruppe suchen; bisher keine Gruppe gefunden.</p></div></div>'+
-'<div class="task"><span class="number">2</span><div><strong>Steinkrallengebirge prüfen</strong><p>Als Alternative zu den zu schweren Tausend Nadeln.</p></div></div>'+
+'<div class="task"><span class="number">1</span><div><strong>Nächste Instanz auswählen</strong><p>Burg Schattenfang und Tiefschwarze Grotte sind erledigt. Kral der Klingenhauer prüfen.</p></div></div>'+
+'<div class="task"><span class="number">2</span><div><strong>Quests bei Stufe 25 bündeln</strong><p>Steinkrallengebirge und Eschental weiter nutzen; offene Dungeon-Questabgaben prüfen.</p></div></div>'+
 '<div class="task"><span class="number">3</span><div><strong>Kürschnerei über 150</strong><p>Trainingsmöglichkeit klären; zuletzt 141 bestätigt.</p></div></div>'+
 '</div></div><div class="card span4">'+cardHead('Gestalten')+'<div class="formchips"><span>Bär ✓</span><span>Katze ✓</span><span>Wasser ✓</span></div><div class="space"></div><p class="mini">Wrathcat zum Solo-Leveln, in Instanzen Heiler. Tatsächlich gesetzte Talente nicht dokumentiert.</p><div class="notice">Katzen-Schleichen und heutiger Goldbestand sind nicht bestätigt.</div></div></div>'+
 heading('Berufe','Zum vollständigen Bereich wechseln')+
@@ -260,7 +279,7 @@ heading('Berufe','Zum vollständigen Bereich wechseln')+
 }
 
 
-const talentState={mode:LOCAL_PROGRESS.settings.talentMode==="legacy"?"legacy":"normal",level:Number.isInteger(LOCAL_PROGRESS.settings.talentPreview)&&LOCAL_PROGRESS.settings.talentPreview>=8&&LOCAL_PROGRESS.settings.talentPreview<=60?LOCAL_PROGRESS.settings.talentPreview:22,filter:"through35"};
+const talentState={mode:LOCAL_PROGRESS.settings.talentMode==="legacy"?"legacy":"normal",level:Number.isInteger(LOCAL_PROGRESS.settings.talentPreview)&&LOCAL_PROGRESS.settings.talentPreview>=8&&LOCAL_PROGRESS.settings.talentPreview<=60?LOCAL_PROGRESS.settings.talentPreview:25,filter:"through35"};
 function talentOffset(){return talentState.mode==="legacy"?0:2}
 const TALENT_POINTS=DATA.talents.flatMap(t=>Array.from({length:t.to-t.from+1},(_,i)=>({id:t.name.toLowerCase().replace(/[^a-z0-9]+/g,"-")+"-"+(t.rank+i),level:t.from+i,name:t.name,tree:t.tree,rank:t.rank+i,max:t.max,detail:t.detail||""})));
 if(TALENT_POINTS.length!==51||new Set(TALENT_POINTS.map(p=>p.id)).size!==51)throw Error("Talent point list inconsistent");
@@ -299,7 +318,7 @@ function renderTalents(){
  '<div class="grid"><div class="card span8"><div class="card-head"><h3>Geplanter Talentweg</h3><span class="pill plan">Nicht als geskillt bestätigt</span></div>'+
  '<p>Dieser Plan basiert auf deinem dokumentierten Wrathcat-Build. Die spätere Verteilung ist <strong>vorläufig</strong> und noch nicht vollständig gegen die ursprünglichen Talentbaum-Screenshots geprüft.</p>'+
  '<div class="talent-controls"><label for="talent-mode">Stufenmodell<select id="talent-mode"><option value="normal">Normal · 1. Punkt ab Stufe 10</option><option value="legacy">Talentiert Rang 2 · ab Stufe 8</option></select></label><label for="talent-level">Stufe anzeigen<input id="talent-level" type="number" inputmode="numeric" min="10" max="60" value="22"></label></div>'+
- '<div class="grid"><div class="card span6"><span class="kicker" id="talent-now-level">Stufe 22</span><div style="font-weight:750;margin-top:6px" id="talent-now"></div><div class="mini">Geplante Empfehlung für diese Stufe</div></div><div class="card span6"><span class="kicker" id="talent-next-level">Stufe 23</span><div style="font-weight:750;margin-top:6px" id="talent-next"></div><div class="mini">Darauffolgender Talentpunkt</div></div></div>'+
+ '<div class="grid"><div class="card span6"><span class="kicker" id="talent-now-level">Stufe 25</span><div style="font-weight:750;margin-top:6px" id="talent-now"></div><div class="mini">Geplante Empfehlung für diese Stufe</div></div><div class="card span6"><span class="kicker" id="talent-next-level">Stufe 23</span><div style="font-weight:750;margin-top:6px" id="talent-next"></div><div class="mini">Darauffolgender Talentpunkt</div></div></div>'+
  '<div class="notice">Deine tatsächlichen Talentpunkte und der Vermächtnisvorteil „Talentiert Rang 2“ sind nicht bestätigt. Die ausgewählte Stufe ist nur eine <strong>Planvorschau</strong> und wird nicht als Fortschritt gespeichert.</div></div>'+
  '<div class="card span4"><h3>Zielverteilung</h3><div class="talent-summary"><div><strong>3</strong><small>Gleichgewicht</small></div><div><strong>32</strong><small>Wilder Kampf</small></div><div><strong>16</strong><small>Wiederherstellung</small></div></div>'+
  '<p class="mini" style="margin-top:13px">51 Punkte insgesamt, vorläufig. Early-Game-Reihenfolge stammt aus Captain Coachs Video; spätere Alternativen können davon abweichen.</p>'+
@@ -315,33 +334,34 @@ function renderTalents(){
 
 function renderLeveling(){
 const routes=[
-{area:"Steinkrallengebirge",levels:"15–25",note:"Jetzt als nächstes Horde-Gebiet erkunden. Flugpunkt und einzelne Quests noch nicht als erledigt bestätigt."},
-{area:"Südliches Brachland",levels:"10–25",note:"Schon besucht und teilweise gequestet. Passende offene Quests mit Kürschnerei verbinden."},
-{area:"Ashenvale / Eschental",levels:"18–30",note:"Bereits besucht. Gute Alternative für passende 20er-Quests, wenn andere Gebiete zäh werden."},
-{area:"Tausend Nadeln",levels:"etwa ab 25",note:"Du fandest das Gebiet noch zu schwer. Für später vormerken."},
-{area:"Desolace",levels:"30–40",note:"Späteres Questgebiet. Das ursprünglich gesuchte Expertenkochbuch brauchst du inzwischen nicht mehr."}
+ {area:"Steinkrallengebirge",levels:"15–25",note:"Bereits besucht: Sonnenfels und Tsunaman; Quest „Ärger in der Tiefe“ dort angenommen."},
+ {area:"Eschental / Ashenvale",levels:"18–30",note:"Tiefschwarze Grotte am Zoramstrand abgeschlossen. Für offene Folgequests den Horde-Außenposten Zoram’gar aufsuchen."},
+ {area:"Südliches Brachland",levels:"10–25",note:"Besucht und teilweise gequestet. Passende offene Aufgaben mit Kürschnerei verbinden."},
+ {area:"Tausend Nadeln",levels:"etwa ab 25–30",note:"Vorher als zu schwer empfunden. Erst zurückkehren, wenn Gegnerstufen angenehm sind."},
+ {area:"Desolace",levels:"30–40",note:"Für die nächste Levelphase vormerken; das Expertenkochbuch ist mit Kochen 225 nicht mehr der aktuelle Engpass."}
 ];
-document.getElementById('leveling').innerHTML=heading("Levelguide","Dein Wrathcat-Druide · zuletzt Stufe 22")+
-'<div class="guide-hint"><strong>Empfohlene Route:</strong> Steinkrallengebirge → offene Aufgaben im südlichen Brachland / Eschental. Tausend Nadeln verschieben, bis du stärker bist.</div>'+
-'<div class="grid"><div class="card span8">'+cardHead("Gebiete")+'<div class="guide-steps">'+routes.map(x=>'<div class="guide-step"><span class="guide-pill">'+esc(x.levels)+'</span><strong>'+esc(x.area)+'</strong><p>'+esc(x.note)+'</p></div>').join("")+'</div></div>'+
-'<div class="card span4">'+cardHead("Solo-Rotation")+'<div class="guide-steps"><div class="guide-step"><strong>1. Pull mit Zorn</strong><p>Bei ausreichend Mana zwei bis drei Zorn-Zauber.</p></div><div class="guide-step"><strong>2. In Katze wechseln</strong><p>Nahkampfschaden; bei Bedarf vorher Verjüngung auf dich.</p></div><div class="guide-step"><strong>3. Talentpunkt prüfen</strong><p>Der separate Talentplan berücksichtigt die verschobenen Stufen durch „Talentiert Rang 2“.</p></div></div><button class="button secondary" style="margin-top:14px" data-view="talents">Talentplan öffnen →</button></div></div>'+
-'<div class="guide-links"><a href="https://www.icy-veins.com/wow-forever/news/not-sure-where-to-level-in-wow-forever-heres-every-zone-from-1-to-60/" target="_blank" rel="noopener">Quelle: Forever-Gebietsbereiche ↗</a></div>';
+document.getElementById('leveling').innerHTML=heading("Levelguide","Clay Wellspring · Wrathcat-Druide · Stufe 25")+
+ '<div class="guide-hint"><strong>Empfohlene Route:</strong> Steinkrallengebirge/Eschental und verbliebene passende Quests. Der Steinkrallenpfad verbindet die Scherwindklippe mit Eschental. Tausend Nadeln erst später erneut testen.</div>'+
+ '<div class="grid"><div class="card span8">'+cardHead("Gebiete")+'<div class="guide-steps">'+routes.map(x=>'<div class="guide-step"><span class="guide-pill">'+esc(x.levels)+'</span><strong>'+esc(x.area)+'</strong><p>'+esc(x.note)+'</p></div>').join("")+'</div></div>'+
+ '<div class="card span4">'+cardHead("Solo-Rotation")+'<div class="guide-steps"><div class="guide-step"><strong>1. Pull mit Zorn</strong><p>Bei ausreichend Mana zwei bis drei Zorn-Zauber.</p></div><div class="guide-step"><strong>2. In Katze wechseln</strong><p>Nahkampfschaden; bei Bedarf vorher Verjüngung auf dich.</p></div><div class="guide-step"><strong>3. Talentpunkt prüfen</strong><p>Der Talentplan bietet reguläre und durch „Talentiert Rang 2“ verschobene Stufen, tatsächlich gesetzte Punkte bleiben offen.</p></div></div><button class="button secondary" style="margin-top:14px" data-view="talents">Talentplan öffnen →</button></div></div>'+
+ '<div class="guide-links"><a href="https://www.icy-veins.com/wow-forever/news/not-sure-where-to-level-in-wow-forever-heres-every-zone-from-1-to-60/" target="_blank" rel="noopener">Quelle: Forever-Gebietsbereiche ↗</a></div>';
 }
 function renderDungeons(){
 const dungeons=[
-{title:"Burg Schattenfang",level:"22–30 · Als nächstes",desc:"Du hast noch keine Gruppe gefunden. Vorher drei Horde-Quests sammeln; ob du sie angenommen hast, ist nicht bestätigt.",quests:["Das Buch von Ur – Bewahrer Bel'dugur, Unterstadt (Apothekerviertel).","Todespirscher in Shadowfang – Hochexekutor Hadrec, Grabmal im Silberwald.","Arugal muss sterben – Dalar Dawnweaver, Grabmal im Silberwald."]},
-{title:"Tiefschwarze Grotte",level:"24–32 · Danach",desc:"Als nächster Dungeon ab etwas höherem Level. Horde-Quests vorher im DungeonJournal prüfen.",quests:[]},
-{title:"Höhlen des Wehklagens",level:"15–25 · Bereits gespielt",desc:"Schon gespielt, aber kein vollständiger Questabschluss dokumentiert.",quests:[]},
-{title:"Ruinen von Lordaeron",level:"15–20 · Optional",desc:"Du wolltest alle passenden Quests sammeln. Abschluss noch nicht bestätigt; inzwischen eher nachrangig.",quests:[]}
+ {title:"Burg Schattenfang",level:"22–30 · Abgeschlossen",desc:"Am 12.11.2026 abgeschlossen. Die vollständige Annahme/Abgabe einzelner Horde-Quests ist nicht dokumentiert.",quests:[]},
+ {title:"Tiefschwarze Grotte",level:"24–32 · Abgeschlossen",desc:"Am 12.11.2026 abgeschlossen. „Ärger in der Tiefe“ zuvor bei Tsunaman angenommen; Abgabe und weitere Questabschlüsse nicht bestätigt.",quests:["Optional: Tsunaman bei Sonnenfels im Steinkrallengebirge (Quest angenommen).","Bei offenen Aufgaben: Je’neu Sancrea im Horde-Außenposten Zoram’gar am Zoramstrand in Eschental aufsuchen.","Im Dungeon können weitere Aufgaben beginnen; bereits erzielte Questabschlüsse nur nach Questlog als erledigt führen."]},
+ {title:"Höhlen des Wehklagens",level:"15–25 · Bereits gespielt",desc:"Schon gespielt; vollständiger Questabschluss nicht dokumentiert.",quests:[]},
+ {title:"Kral der Klingenhauer",level:"Ab etwa Ende der 20er · Nächste Option",desc:"Als nächste Gruppeninstanz prüfen; passende Horde-Quests und Gegnerstufe vor dem Start verifizieren. Noch nicht besucht.",quests:[]}
 ];
-document.getElementById('dungeons').innerHTML=heading("Dungeon-Guide","Instanzen und Quests für deinen Horde-Heiler")+
-'<div class="guide-hint"><strong>Aktuell:</strong> Burg Schattenfang mit einer Gruppe angehen. Die drei Horde-Quests vor Eintritt prüfen; keine davon ist als angenommen bestätigt.</div>'+
-'<div class="grid"><div class="card span8"><div class="guide-steps">'+dungeons.map(x=>'<div class="guide-step"><span class="guide-pill">'+esc(x.level)+'</span><strong>'+esc(x.title)+'</strong><p>'+esc(x.desc)+'</p>'+(x.quests.length?'<ul class="guide-info-list">'+x.quests.map(q=>'<li>'+esc(q)+'</li>').join("")+'</ul>':'')+'</div>').join("")+'</div><div class="guide-links"><a href="https://www.wowhead.com/forever/de/guide/shadowfang-keep-dungeon-overview-location-rewards" target="_blank" rel="noopener">Schattenfang-Quests prüfen ↗</a><a href="https://www.wowhead.com/forever/guide/dungeons-overview-locations-details" target="_blank" rel="noopener">Dungeon-Levelbereiche ↗</a></div></div>'+
-'<div class="card span4">'+cardHead("Heiler-Vorbereitung")+'<div class="guide-steps"><div class="guide-step"><strong>Vorher Quests mitnehmen</strong><p>Doppelte Wege vermeiden, vor allem nach Silberwald/Unterstadt.</p></div><div class="guide-step"><strong>Mana und Heilränge</strong><p>Trinken und kleinere Heilränge bereithalten; nicht jeden Schaden maximal heilen.</p></div><div class="guide-step"><strong>Gruppe im Blick</strong><p>Tank, HoTs und Reichweite kontrollieren. Die Stufenbereiche sind Orientierungswerte, keine Eintrittsgarantien.</p></div></div></div></div>';
+document.getElementById('dungeons').innerHTML=heading("Dungeon-Guide","Clay Wellspring · Horde-Heiler · Stufe 25")+
+ '<div class="guide-hint"><strong>Geschafft:</strong> Burg Schattenfang und Tiefschwarze Grotte. <strong>Nächste mögliche Instanz:</strong> Kral der Klingenhauer. Die Dungeonabschlüsse belegen nicht automatisch alle einzelnen Questabgaben.</div>'+
+ '<div class="grid"><div class="card span8"><div class="guide-steps">'+dungeons.map(x=>'<div class="guide-step"><span class="guide-pill">'+esc(x.level)+'</span><strong>'+esc(x.title)+'</strong><p>'+esc(x.desc)+'</p>'+(x.quests.length?'<ul class="guide-info-list">'+x.quests.map(q=>'<li>'+esc(q)+'</li>').join("")+'</ul>':'')+'</div>').join("")+'</div>'+
+ '<div class="guide-hint" style="margin-top:15px"><strong>Wegbeschreibung nach Zoram’gar:</strong> Von Sonnenfels im Steinkrallengebirge über die Straße zur Scherwindklippe. Dort den Steinkrallenpfad (Höhlentunnel) nach Eschental nehmen. In Eschental Richtung Nordwesten zum Zoramstrand und zum Horde-Lager Zoram’gar; dort Je’neu Sancrea suchen. Koordinaten dienen höchstens als Zusatz.</div></div>'+
+ '<div class="card span4">'+cardHead("Heiler-Vorbereitung")+'<div class="guide-steps"><div class="guide-step"><strong>Rollen-Set wechseln</strong><p>Lederrüstung der Weisheit als Heiler-Brust; Träumer für Wrathcat. Anlegen des Heil-Sets nicht als bestätigt voraussetzen.</p></div><div class="guide-step"><strong>Mana und Heilränge</strong><p>Trinken und kleinere Heilränge bereithalten; nicht jeden Schaden maximal heilen.</p></div><div class="guide-step"><strong>Gruppe im Blick</strong><p>Tank, HoTs und Reichweite kontrollieren. Levelbereiche sind Orientierungswerte.</p></div></div></div></div>';
 }
 function renderTasks(){
 document.getElementById('tasks').innerHTML=heading('Questguide','Aktuelle Ziele und offene Questfragen · spoilerarm')+
-'<div class="guide-hint"><strong>Jetzt sinnvoll:</strong> Passende Aufgaben im Steinkrallengebirge, Eschental und im südlichen Brachland bündeln. Rote oder zu schwere Quests verschieben. Für Burg Schattenfang zuerst die Horde-Quests im Dungeon-Tab anschauen.</div>'+
+'<div class="guide-hint"><strong>Jetzt sinnvoll:</strong> Passende Aufgaben im Steinkrallengebirge, Eschental und im südlichen Brachland bündeln. Rote oder zu schwere Quests verschieben. Burg Schattenfang und Tiefschwarze Grotte sind bereits abgeschlossen; für verbliebene Quests den Queststatus prüfen.</div>'+
 '<div class="guide-steps" style="margin-bottom:15px"><div class="guide-step"><strong>1. Leichte Quests bevorzugen</strong><p>Gelbe und passende grüne Aufgaben mit kurzer Laufstrecke zuerst erledigen.</p></div><div class="guide-step"><strong>2. Quests bündeln</strong><p>Unterwegs Wildtiere kürschnern und mehrere Aufgaben in einem Gebiet abschließen.</p></div><div class="guide-step"><strong>3. Alte Aufgaben aufräumen</strong><p>Zentaurenarmschienen und Harpyienkrallen nur nach Nutzen und Wegstrecke bewerten; kein Abbruch oder Abschluss bestätigt.</p></div></div>'+
 '<div class="toolbar"><input id="task-search" class="search" type="search" placeholder="Aufgaben suchen …" aria-label="Aufgaben durchsuchen"><button class="filter selected" data-filter="all">Alle</button><button class="filter" data-filter="plan">Offen / geplant</button><button class="filter" data-filter="done">Erledigt</button><button class="filter" data-filter="unknown">Unklar</button></div><div class="list" id="task-list"></div>';
 renderTaskList('all','')
@@ -356,9 +376,9 @@ document.getElementById('professions').innerHTML=heading('Berufe','Bestätigte F
 '<p><strong>60 rohe Mithrilkopfforellen</strong> am 09.11. gekauft. Aktueller Restbestand unbekannt.</p><div class="space"></div><p>Alte AH-Preise sind keine aktuellen Marktpreise. Kosten für Lederrezepte vor dem Kauf neu prüfen.</p><div class="notice">Bei Erste Hilfe dient die Skala 150 als nächstes Orientierungsziel, nicht als bestätigte Ausbildungsobergrenze.</div></div></div>'
 }
 function renderGear(){
-document.getElementById('gear').innerHTML=heading('Ausrüstung','Zuletzt gemeldete Teile vom 11.11.2026')+
+document.getElementById('gear').innerHTML=heading('Ausrüstung','Bestätigte Screenshot-Teile vom 13.11.2026')+
 '<div class="grid"><div class="card span6">'+cardHead('Aktuell getragen')+'<div class="slots">'+DATA.slots.map(x=>'<div class="slot"><small>'+esc(x.slot)+'</small><strong>'+esc(x.item)+'</strong></div>').join('')+'</div><p class="mini" style="margin-top:17px">Waffe: früher bestätigter Stab mit 9,5 DPS vom 07.11.; aktuelle Waffe unbekannt.</p></div><div class="card span6">'+cardHead('Rollen & geplante Upgrades')+
-'<div class="rowline"><strong>Solo · Wrathcat</strong><p class="mini">Lederrüstung des Verteidigers gewünscht; noch kein Kauf bestätigt.</p></div><div class="rowline"><strong>Dungeon · Heiler</strong><p class="mini">Lederrüstung der Weisheit gewünscht; noch kein Kauf bestätigt.</p></div></div></div>'+
+'<div class="rowline"><strong>Solo · Wrathcat</strong><p class="mini">Brustschutz des Träumers ausgerüstet; Verteidiger selbst hergestellt und zuvor getragen.</p></div><div class="rowline"><strong>Dungeon · Heiler</strong><p class="mini">Lederrüstung der Weisheit selbst hergestellt, im Inventar bestätigt; zum Heilen geeignet.</p></div></div></div>'+
 heading('Sets und Handwerk','Erhalten ist nicht gleich ausgerüstet')+'<div class="list">'+DATA.sets.map(x=>infoCard(x)).join('')+
 infoCard({title:'Deviatschuppengürtel',status:'confirmed',description:'Bei Lederverarbeitung 91 hergestellt; Tragen nicht bestätigt.'})+'</div>'
 }
@@ -406,8 +426,8 @@ el.innerHTML='<div class="guide-hint"><strong>'+esc(d[0])+' · '+esc(d[1])+'</st
 
 
 const GUIDED_CRAFTS=[
-["Lederrüstung der Weisheit","Heiler","Geplantes Heiler-Brustteil","Für deine Dungeon-Heilung: Heil- und Willenskraftwerte mit deiner bisherigen Brust vergleichen.","Im AH früher ca. 36 Silber; Besitz, Muster und Materialien unbestätigt.","plan"],
-["Lederrüstung des Verteidigers","Solo","Geplantes Solo-Brustteil","Prüfe Ausdauer, Rüstung und Kampfnutzen für deinen Wrathcat.","Muster früher 45 Silber; noch kein Kauf oder Crafting bestätigt.","plan"],
+["Lederrüstung der Weisheit","Heiler","Selbst hergestellt · Heiler-Brust","Im Inventar bestätigt: +5 Intelligenz, +15 Zauberheilung, +5 Zauberschaden, +3 Willenskraft und +3 Ausdauer (ohne Verzauberung).","Für das Heiler-Set geeignet; als aktuell ausgerüstet nicht bestätigt.","confirmed"],
+["Lederrüstung des Verteidigers","Solo","Selbst hergestellt · früher getragen","Brustteil aus eigener Lederverarbeitung; +7 Stärke, +3 Beweglichkeit und +5 Ausdauer ohne Verzauberung.","Wurde gegen den Brustschutz des Träumers getauscht; aktuelles Tragen nicht mehr bestätigt.","confirmed"],
 ["Grubenkämpfer-Brustrüstung","Solo","Alternative für den Brustslot","Mögliches Upgrade, aber nur bei gutem Gegenwert gegenüber deinen bisherigen Teilen.","Muster für 85 Silber besprochen und als zu teuer eingeschätzt.","plan"],
 ["Mittleres Rüstungsset","Nützlich","Zwischenverbesserung","Ein Rüstungsset kann bestehende Ausrüstung etwas verstärken, ohne ein neues Teil zu brauchen.","Rezept und Materialbedarf direkt im Berufsfenster prüfen; Anwendung unbestätigt.","plan"],
 ["Camp Tent / Lagerzelt","Nützlich","Forever-spezifisches Lagerobjekt","Interessantes Lederhandwerk für Lager/Erholung statt eines weiteren Rüstungsteils.","Forever-Guides nennen 5× leichtes Leder; Herstellung unbestätigt.","plan"],
@@ -416,12 +436,12 @@ const GUIDED_CRAFTS=[
 let guidedCraft="Alle";
 function renderGearV2(){
 document.getElementById("gear").innerHTML=heading("Gear craften","Gute Leder-Crafts für deinen Druiden")+
-'<div class="guide-hint"><strong>Deine Wunsch-Brustrüstungen:</strong> Weisheit fürs Heilen, Verteidiger fürs Solo-Leveln. Beide noch geplant. Vor dem Kauf Muster, Materialkosten und tatsächliche Werte prüfen.</div>'+
+'<div class="guide-hint"><strong>Deine Brustrüstungen:</strong> Träumer für Wrathcat angelegt; Weisheit als selbst hergestelltes Heiler-Brustteil vorhanden; Verteidiger hergestellt und früher getragen.</div>'+
 '<div class="toolbar">'+["Alle","Solo","Heiler","Nützlich"].map(x=>'<button class="filter'+(guidedCraft===x?" selected":"")+'" data-pick-craft="'+x+'">'+x+'</button>').join("")+'</div>'+
 '<div class="grid" id="guided-craft"></div>'+
-heading("Zuletzt getragen","Bestätigt am 11.11.2026")+
+heading("Zuletzt getragen","Bestätigt durch Vergleiche am 13.11.2026; bei unklaren Slots letzter belegter Stand")+
 '<div class="grid"><div class="card span8"><div class="slots">'+DATA.slots.map(x=>'<div class="slot"><small>'+esc(x.slot)+'</small><strong>'+esc(x.item)+'</strong></div>').join("")+'</div></div>'+
-'<div class="card span4">'+cardHead("Worauf achten?")+'<p>Für Solo: Kampfnutzen und Überleben. Fürs Heilen: passende Heil-/Willenskraftwerte. Das Fäulnisheiler-Set wolltest du bewusst nicht weiter sammeln.</p><div class="guide-links"><a href="https://mobalytics.gg/wow-forever/guides/leatherworking-profession-guide" target="_blank" rel="noopener">Forever-Rezeptguide ↗</a></div></div></div>';
+'<div class="card span4">'+cardHead("Worauf achten?")+'<p>Für Solo: Träumer. Fürs Heilen: Weisheit. Giftzahn-Handschuhe und -Gamaschen geben zusammen +10 Intelligenz. Armschützer des Kultisten und Nagakampfhandschuhe sind erhalten, aber das Anlegen ist unbestätigt. Fäulnisheiler nicht weiter sammeln.</p><div class="guide-links"><a href="https://mobalytics.gg/wow-forever/guides/leatherworking-profession-guide" target="_blank" rel="noopener">Forever-Rezeptguide ↗</a></div></div></div>';
 renderGuidedCraft();
 }
 function renderGuidedCraft(){
