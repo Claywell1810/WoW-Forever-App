@@ -12,6 +12,7 @@ Dies ist **ausschließlich die öffentliche statische Web-App**. Der ausführlic
 - `index.html` – Dashboard mit eingebetteten Charakterdaten und Makros, Snapshot vom 14.11.2026
 - `sw.js` – Service Worker für Offline-Nutzung
 - `spellbook.js` – offline verfügbare, recherchierte Druidenzauber und einzelne Ränge bis Stufe 60
+- `gear-db.js`, `gear-db.css` – Gear-Builder mit lokaler IndexedDB, öffentlicher WoW-Forever-Item-API, Ausrüstungsprofilen und Wunschliste
 - `ux.js`, `ux.css` – vorbereitete optionale UX-Erweiterung; die aktive App-Navigation und Checklisten liegen derzeit in `index.html`
 - `manifest.webmanifest` – Web-App-Metadaten
 - `icon.svg`, `icon-192.png` – App-Symbole
@@ -59,3 +60,20 @@ Die Grundfunktionen einschließlich lokalem Planungslevel, Checkbox-Speicherung 
 ### Bestätigter Spielstand vom 14.11.2026
 
 **Stufe 27**. Schlafsack-Questreihe erledigt und Gegenstand erhalten. Dungeon-Quests für **Ausgrabungsstätte: Sumpfland** gesammelt; die Instanz bleibt offen. Die App führt hierfür neue Etappen (`level-27`, `quests-sleepingbag`, `dung-excav-quests`) und setzt sie nur dann als bestätigt, wenn lokal noch keine eigene Entscheidung gespeichert ist. Alle übrigen Häkchen und Talent-/Zauberauswahlen bleiben bestehen.
+
+
+## Gear-Builder und echte Itemdatenbank (14.11.2026)
+
+**Zugriff:** App → **Mehr → Gear-Builder**, alternativ **Gear craften → Gear-Builder öffnen**. Der Bereich enthält zwei getrennte Profile: **Wrathcat (Solo)** und **Heiler (Instanzen)**, eine Slotübersicht, eine Suche, einen Vergleich von bekannten Werten und Upgrade-Wunschlisten.
+
+**Externe Quelle:** Die Suche verwendet die öffentliche [TheWoWDB Forever API](https://thewowdb.com/developers/) über \`GET https://thewowdb.com/api/v1/forever/item/?q=...\` und die Itemdetail-Route \`.../item/{id}\`. Kein API-Key erforderlich, browserseitiger CORS-Zugriff laut Dokumentation erlaubt. Sichtbare Attribution ist eingebaut. Die API liefert Gegenstandsdatensätze aus dem WoW-Forever-Client; sie kann unvollständige, ältere oder von Ingame-Anzeigen abweichende Angaben enthalten. Die App zeigt deshalb Quellenlinks, unterscheidet manuelle Spielerbestätigungen von API-Items und **behauptet keine Dropchance**.
+
+**Lokale echte Datenbank:** Browser-\`IndexedDB\` namens \`wow-forever-gear-v1\` mit Tabellen/Object Stores \`items\`, \`profiles\`, \`wishlist\` und \`meta\`. Echte API-Ergebnisse werden lokal zwischengespeichert und können danach offline angesehen werden. Der bereits vorliegende Charakterstand ist in der Datenbank als manuell bestätigte Startauswahl hinterlegt; in der Heileransicht ist das Weisheit-Brustteil ausdrücklich **nur geplant**, nicht als getragen bestätigt. Die bereits vorhandenen lokalen Häkchen, Zauber und Talente verwenden weiter ihren unveränderten bisherigen \`localStorage\`-Schlüssel.
+
+**Vergleich:** Gewichtete Vergleichspunkte sind ausschließlich eine **heuristische Orientierung**, keine WoW-Forever-DPS-, HPS- oder Tank-Simulation. Fehlende Werte bleiben als unbekannt kenntlich. Setboni, Effekte, Verzauberungen und tatsächliche Klassentauglichkeit müssen vor einer Empfehlung geprüft werden.
+
+**Backup / Synchronisierung:** Der Gear-Builder bietet **separaten JSON-Export und -Import** für Items, Profile und Wunschliste; der Import bestätigt vor dem Überschreiben. Das bisherige App-Backup betrifft die übrigen Häkchen. Die IndexedDB synchronisiert **nicht** geräteübergreifend und schreibt **nicht** automatisch in den privaten GitHub-Tracker. Für geräteübergreifende Synchronisierung wäre ein geschütztes Backend nötig. Derzeit ist **keine** zentral gehostete Datenbank eingerichtet. Bei Browser-Datenlöschung ohne Backup können die lokalen Profile verloren gehen.
+
+**API-Verfügbarkeit:** Die Suche benötigt Internet, zuvor geladene Datensätze und Profile nicht. Ein Server- oder CORS-Fehler darf weder die bestehende Guide-App noch die gespeicherten lokalen Daten beschädigen.
+
+**Technische Prüfung:** Scripte auf Syntax und Verknüpfung zu HTML/Cache prüfen; ein vollständiger Interaktionstest auf iPhone bzw. gegen reale API-Antworten steht noch aus.
