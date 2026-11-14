@@ -217,7 +217,7 @@
     }
     // Die API kann denselben Stat in mehreren alternativen Feldern führen:
     // nur die erste vorhandene strukturierte Liste verwenden, nie addieren.
-    const blocks=[raw.stats,raw.bonus_stats,raw.attributes].filter(x=>x&&typeof x==="object");
+    const blocks=[raw.stats,raw.bonus_stats,raw.attributes].filter(x=>x&&typeof x==="object"&&(Array.isArray(x)?x.length>0:Object.keys(x).length>0));
     if(blocks.length>1)blocks.splice(1);
     for(const block of blocks){
       if(Array.isArray(block)){
