@@ -77,3 +77,12 @@ Die Grundfunktionen einschließlich lokalem Planungslevel, Checkbox-Speicherung 
 **API-Verfügbarkeit:** Die Suche benötigt Internet, zuvor geladene Datensätze und Profile nicht. Ein Server- oder CORS-Fehler darf weder die bestehende Guide-App noch die gespeicherten lokalen Daten beschädigen.
 
 **Technische Prüfung:** JavaScript-Syntax, App-Navigation, Service-Worker-Einbindung und Item-Normalisierung wurden geprüft. Ein vollständiger Interaktionstest auf iPhone sowie echte Antwortdaten aus der öffentlichen API konnten aus dieser Umgebung noch nicht verifiziert werden.
+
+## Pathfinder-Design (14.11.2026)
+
+Die App verwendet das eigenständige, auf mobile Benutzung ausgerichtete **Pathfinder-Theme** (Datei `forever-theme.css`). Die Gestaltung orientiert sich an der klaren Karten-/Guide-Struktur zeitgemäßer WoW-Fan-Seiten wie ForeverHelper, ohne deren Quellcode, Grafiken, Texte, Logo oder Schriftdateien zu übernehmen.
+
+- Dunkle Blau-/Anthrazit-Flächen, warme Goldakzente, hervorgehobene Karten, Fortschrittsleisten und klarere Überschriften.
+- Auf dem iPhone bleiben die fünf Hauptnavigationseinträge am unteren Rand erhalten.
+- Alle vorhandenen Bereiche (Checklisten, Talentplan, Zauberränge, Dungeons, Berufefortschritt und Gear-Builder) funktionieren wie zuvor; lokale Daten werden durch das Theme nicht geändert.
+- `sw.js` cached die neue CSS-Datei (PWA-Cache-Version `v13`). Im installierten iPhone-Home-Screen-Programm nach einer Online-Aktualisierung ggf. einmal schließen und neu öffnen.
