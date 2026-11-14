@@ -1,0 +1,73 @@
+/* WoW Forever Gear Builder – eigene Klassennamen, kein Eingriff in bisherige Guide-Checkboxen */
+#gear-builder{padding-bottom:28px}
+.gear-notice{padding:13px 15px;border:1px solid #3d5b55;border-radius:13px;background:#152b2b;color:var(--muted);font-size:12px;margin:12px 0 18px}
+.gear-notice a,.gear-credit a,.gear-item-ref a,.gear-wish a{color:var(--gold)}
+.gear-role-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0 17px}
+.gear-role-tabs button{background:#15272a;color:var(--muted);border:1px solid #38534b;border-radius:11px;min-height:45px;padding:12px 17px;font-weight:800;flex:1}
+.gear-role-tabs button.active{background:#305243;border-color:#83c8a5;color:#fff}
+.gear-panel{border:1px solid var(--line);background:linear-gradient(145deg,#14252a,#121e23);border-radius:16px;padding:19px;margin:14px 0}
+.gear-panel h3{font:500 23px Georgia,serif;margin:0 0 14px;color:var(--text)}
+#gear-totals{background:#1b322e;border:1px solid #3b594d;border-radius:12px;padding:12px 15px;margin-bottom:14px}
+#gear-totals strong{font-size:14px}
+#gear-totals p{font-size:12px;color:var(--text);margin:5px 0}
+#gear-totals small{display:block;font-size:11px;color:var(--muted)}
+.gear-slot-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.gear-slot{padding:12px;border:1px solid #30464a;border-radius:11px;background:#17282b;display:flex;align-items:center;justify-content:space-between;gap:11px;min-height:82px}
+.gear-slot.selected{border-color:#97c8a5;background:#233a32}
+.gear-slot>div:first-child{min-width:0;flex:1}
+.gear-slot strong{display:block;font-size:13px;line-height:1.4;overflow-wrap:anywhere}
+.gear-slot small{display:block;color:var(--muted);font-size:11px;line-height:1.4;margin-top:3px}
+.gear-slot-label{display:block;color:var(--gold);font-size:10px;font-weight:850;letter-spacing:.6px;text-transform:uppercase;margin-bottom:4px}
+.gear-unknown{font-size:12px;color:#8fa4a3}
+.gear-slot-actions{display:flex;gap:5px;flex:0 0 auto}
+.gear-slot-actions button,.gear-item button,.gear-wish-actions button,.gear-buttons>button,.gear-search-row button,.gear-custom button{background:#284739;color:#e3f3e5;border:1px solid #547863;border-radius:9px;padding:9px 11px;min-height:43px;font-size:12px;font-weight:800}
+.gear-slot-actions button:last-child:not(:first-child){background:#1a2e31;border-color:#425658;color:var(--muted)}
+.gear-search-row{display:flex;gap:12px;align-items:flex-end;flex-wrap:wrap}
+.gear-search-row>label{flex:0 0 175px}
+.gear-search-row>form{display:flex;flex:1;gap:9px;align-items:end;min-width:min(100%,260px)}
+.gear-search-row label{display:block;color:var(--muted);font-size:12px;font-weight:750}
+.gear-search-row input,.gear-search-row select,.gear-custom input{display:block;width:100%;background:#0e1d22;color:var(--text);border:1px solid #4d6960;border-radius:10px;padding:11px;font:inherit;margin-top:7px;min-height:45px}
+.gear-search-row form label{flex:1;min-width:140px}
+.gear-search-row button{flex:0 0 auto}
+.gear-muted{font-size:12px;color:var(--muted);margin:10px 0}
+.gear-item,.gear-wish{border-top:1px solid #2d4546;padding:14px 0;display:flex;align-items:center;justify-content:space-between;gap:13px}
+.gear-item>div:first-child,.gear-wish>div:first-child{min-width:0;flex:1}
+.gear-item strong,.gear-wish strong{font-size:14px;display:block}
+.gear-item small,.gear-wish small{font-size:11px;display:block;color:var(--muted);margin-top:4px}
+.gear-item p,.gear-wish p{font-size:12px;color:#c3d5d0;margin:5px 0 0}
+.gear-item-ref{font-size:11px;margin-top:5px}
+.gear-empty{font-size:12px;color:var(--muted);padding:14px;border:1px dashed #415757;border-radius:10px}
+.gear-compare-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+.gear-compare-head h3{margin:3px 0 0;font:600 17px system-ui,sans-serif}
+.gear-compare-head span{font-size:12px;color:var(--gold)}
+.gear-comparison{width:100%;border-collapse:collapse;font-size:13px;margin:10px 0}
+.gear-comparison th,.gear-comparison td{padding:9px 10px;border-bottom:1px solid #304a4b;text-align:right}
+.gear-comparison th:first-child{text-align:left}
+.gear-comparison thead{color:#d4dfd4}
+.gear-warning{color:#f0c98d;font-size:12px}
+.gear-buttons{display:flex;gap:9px;flex-wrap:wrap;margin-top:13px}
+.gear-buttons .gear-secondary{background:#1c3033;color:var(--gold);border-color:#42575c}
+.gear-wish-actions{display:flex;gap:5px;flex-wrap:wrap;justify-content:flex-end}
+.gear-wish-actions button{background:#1b3533;padding:8px 9px}
+.gear-custom{margin-top:15px;border-top:1px solid var(--line);padding-top:12px}
+.gear-custom summary{font-size:12px;color:var(--gold);font-weight:750;cursor:pointer;padding:5px}
+.gear-custom form{display:flex;gap:9px;align-items:end;flex-wrap:wrap;margin-top:8px}
+.gear-custom input{max-width:410px;flex:1}
+.gear-import{border:1px solid #52665a;background:#1c3133;color:var(--gold);border-radius:9px;font-weight:750;padding:12px;cursor:pointer;min-height:43px;font-size:12px}
+.gear-import input{display:none}
+.gear-status{border:1px solid #345c4a;border-radius:11px;padding:11px 14px;color:#d9ebdd;font-size:12px;margin:15px 0}
+#gear-builder button:focus-visible,#gear-builder input:focus-visible,#gear-builder select:focus-visible,#gear-builder summary:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+@media(max-width:860px){.gear-slot-grid{grid-template-columns:1fr}}
+@media(max-width:740px){
+ .gear-panel{padding:14px;margin:12px 0}
+ .gear-role-tabs button{padding:11px 8px;font-size:12px}
+ .gear-search-row>label{flex:1 1 100%;min-width:100%}
+ .gear-search-row>form{flex:1 1 100%;flex-wrap:wrap;min-width:0}
+ .gear-search-row form label{flex:1 1 100%}
+ .gear-search-row button{width:100%}
+ .gear-item,.gear-wish{align-items:flex-start}
+ .gear-item button{flex:0 0 auto}
+ .gear-wish{flex-direction:column}
+ .gear-wish-actions{justify-content:flex-start}
+}
+@media(max-width:385px){.gear-slot{flex-wrap:wrap}.gear-slot-actions{width:100%;justify-content:flex-end}.gear-compare-head{flex-direction:column;gap:4px}}
