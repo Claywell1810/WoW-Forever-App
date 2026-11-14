@@ -9,7 +9,7 @@ Dies ist **ausschließlich die öffentliche statische Web-App**. Der ausführlic
 3. Nach der ersten erfolgreichen Online-Nutzung ist die zuletzt gespeicherte Version im Regelfall offline nutzbar, solange iOS den Cache nicht löscht.
 
 ## Dateien
-- `index.html` – Dashboard mit eingebetteten Charakterdaten und Makros, Snapshot vom 13.11.2026
+- `index.html` – Dashboard mit eingebetteten Charakterdaten und Makros, Snapshot vom 14.11.2026
 - `sw.js` – Service Worker für Offline-Nutzung
 - `spellbook.js` – offline verfügbare, recherchierte Druidenzauber und einzelne Ränge bis Stufe 60
 - `ux.js`, `ux.css` – vorbereitete optionale UX-Erweiterung; die aktive App-Navigation und Checklisten liegen derzeit in `index.html`
@@ -30,7 +30,7 @@ Die Webseite ist öffentlich erreichbar. Keine Passwörter, privaten API-Schlüs
 
 ## Dungeon-Komplettierungsziel bis 35
 
-Im Dungeontab gibt es 17 einzeln abhackbare Dungeon-/Klosterziele, einschließlich der schwieriger erreichbaren Allianz-Instanzen. Die beiden ausdrücklich abgeschlossenen Dungeons **Burg Schattenfang** und **Tiefschwarze Grotte** bleiben als bestätigte Etappen hinterlegt. **Höhlen des Wehklagens** wurden bereits gespielt, aber der vollständige Abschluss ist nicht gesondert bestätigt. Die Questabgaben werden separat geprüft. Die Checkliste setzt oder löscht vorhandene lokale Häkchen nicht; neue Einträge sind zunächst offen. Das Ziel, alle Dungeons auch über Stufe 35 hinaus zu spielen, steht im privaten Charaktertracker.
+Im Dungeontab gibt es 17 einzeln abhackbare Dungeon-/Klosterziele, einschließlich der schwieriger erreichbaren Allianz-Instanzen. Die beiden ausdrücklich abgeschlossenen Dungeons **Burg Schattenfang** und **Tiefschwarze Grotte** bleiben als bestätigte Etappen hinterlegt. Für **Ausgrabungsstätte: Sumpfland** wurden am 14.11.2026 die Dungeon-Quests gesammelt; ein Dungeonabschluss ist nicht bestätigt. Der **Gemütliche Schlafsack** wurde am selben Tag erhalten. **Höhlen des Wehklagens** wurden bereits gespielt, aber der vollständige Abschluss ist nicht gesondert bestätigt. Die Questabgaben werden separat geprüft. Die Checkliste setzt oder löscht vorhandene lokale Häkchen nicht; neue Einträge sind zunächst offen. Das Ziel, alle Dungeons auch über Stufe 35 hinaus zu spielen, steht im privaten Charaktertracker.
 
 ## Abhakbare Spielfortschritte
 
@@ -43,10 +43,10 @@ Mit **„Abgehakte Ziele für den Chat kopieren“** auf der Übersicht beziehun
 `spellbook.js` enthält derzeit **212 mit Leveln versehene Einträge** für den Druiden (**101 bis Stufe 35**). Grundlage ist die levelweise Forever-Datenbank [Druidenzauber mit Rängen](https://wow-forever-talent-calculator.com/druid/spells) mit Abgleich bei [1mw](https://1mw.io/en/classes/druid/talents). Die Datenbanken enthalten voneinander abweichende Zählungen; insbesondere Fähigkeiten **ohne belegte Lernstufe** sowie interne passive Effekte können fehlen. Die Liste ist deshalb **keine Garantie für ein vollständiges aktuelles Lehrermenü**. Klassenquests und Talentfähigkeiten sind gekennzeichnet und werden nicht automatisch als gelernt angenommen.
 
 
-## Bedienung – vereinfachte Version (13.11.2026)
+## Bedienung – vereinfachte Version (14.11.2026)
 
 - Unten auf dem iPhone: **Heute, Leveln, Quests, Dungeons, Mehr**. Unter Mehr: Berufe, Gear, Talente, Zauber, Makros, Bücher und Datensicherung.
-- **Heute** zeigt die nächsten offenen Meilensteine, Talente und Zauber. Die **Planungsstufe** (z. B. 27) wird nur lokal gespeichert. Sie ändert **nicht** den bestätigten GitHub-Spielstand (zuletzt Stufe 25).
+- **Heute** zeigt die nächsten offenen Meilensteine, Talente und Zauber. Die **Planungsstufe** (z. B. 27) wird nur lokal gespeichert. Sie ändert **nicht** den bestätigten GitHub-Spielstand (zuletzt Stufe 27, bestätigt am 14.11.2026).
 - **Etappen bis Stufe 35** stehen am Anfang der Guide-Bereiche; abgehakte Etappen werden in eine aufklappbare Gruppe verschoben.
 - Im **Zauberbuch**: „Letztes Lernlevel“ zeigt den letzten Zauber-Lernschritt bis zur Planungsstufe (auf Stufe 27 also Stufe 26); „Bis Planungsstufe“ zeigt den Rückstand. Zusätzlich kannst du **nicht abgehakte Zauber** und **Lehrer / Klassenquests / Talente** filtern.
 - Ein **Häkchen bedeutet lokal markiert**. Mit diesem Update werden zweifelsfrei bestätigte Meilensteine bei erstmalig leerem Eintrag als Startwert angehakt; eine vorhandene Nutzerentscheidung (auch bewusst **nicht** angehakt) wird nicht überschrieben. Die App liest nicht auf den WoW-Account zu.
@@ -55,3 +55,7 @@ Mit **„Abgehakte Ziele für den Chat kopieren“** auf der Übersicht beziehun
 - Für die Offline-Nutzung muss die App nach einem Update zunächst einmal online geladen worden sein. Ein abweichender Speicherstand zwischen Safari und der zum Home-Bildschirm hinzugefügten Web-App kann vorkommen: Vor einem Wechsel am besten ein JSON-Backup erstellen.
 
 Die Grundfunktionen einschließlich lokalem Planungslevel, Checkbox-Speicherung und Backup-Wiederherstellung wurden automatisiert geprüft. Ein vollständiger iPhone-Fingertest bleibt offen.
+
+### Bestätigter Spielstand vom 14.11.2026
+
+**Stufe 27**. Schlafsack-Questreihe erledigt und Gegenstand erhalten. Dungeon-Quests für **Ausgrabungsstätte: Sumpfland** gesammelt; die Instanz bleibt offen. Die App führt hierfür neue Etappen (`level-27`, `quests-sleepingbag`, `dung-excav-quests`) und setzt sie nur dann als bestätigt, wenn lokal noch keine eigene Entscheidung gespeichert ist. Alle übrigen Häkchen und Talent-/Zauberauswahlen bleiben bestehen.
