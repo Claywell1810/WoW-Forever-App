@@ -16,7 +16,7 @@
     {view:"tools",title:"Makros & Controller",icon:"⌘",sub:"Fertige Makros und Einstellungen"},
     {view:"books",title:"Büchersammlung",icon:"▤",sub:"Gesammelte Bibliotheksbücher"}
   ];
-  const CONFIRMED_LEVEL=25; // Last confirmed in private character_tracker.md, never overwrite from app.
+  const CONFIRMED_LEVEL=27; // Last confirmed in private character_tracker.md (14.11.2026), never overwrite from app.
   const UX_BACKUP_KIND="wow-forever-progress-backup";
   const main=document.querySelector(".main");
   const more=document.createElement("div");
