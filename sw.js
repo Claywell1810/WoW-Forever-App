@@ -1,6 +1,6 @@
 /* GitHub-Pages-PWA: zuletzt online geladene App-Dateien auch offline anzeigen. */
-const CACHE = "wow-forever-v12-20261114-gear-db";
-const FILES = ["./", "./index.html", "./manifest.webmanifest", "./icon.svg", "./icon-192.png", "./spellbook.js", "./gear-db.js", "./gear-db.css"];
+const CACHE = "wow-forever-v13-20261114-pathfinder";
+const FILES = ["./", "./index.html", "./manifest.webmanifest", "./icon.svg", "./icon-192.png", "./spellbook.js", "./gear-db.js", "./gear-db.css", "./forever-theme.css"];
 self.addEventListener("install", event => {
   event.waitUntil((async () => {
     const cache = await caches.open(CACHE);
