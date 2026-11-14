@@ -215,7 +215,10 @@
       const k=normalizedStatName(key),n=numeric(value);
       if(k&&n!==null)stats[k]=(stats[k]||0)+n;
     }
-    const blocks=[raw.stats,raw.bonus_stats,raw.attributes];
+    // Die API kann denselben Stat in mehreren alternativen Feldern führen:
+    // nur die erste vorhandene strukturierte Liste verwenden, nie addieren.
+    const blocks=[raw.stats,raw.bonus_stats,raw.attributes].filter(x=>x&&typeof x==="object");
+    if(blocks.length>1)blocks.splice(1);
     for(const block of blocks){
       if(Array.isArray(block)){
         block.forEach(x=>{if(!x||typeof x!=="object")return;
@@ -308,11 +311,14 @@
     if(!navigator.onLine){searchStatus+=" Offline – nutze gespeicherte Items.";renderResultList();return;}
     notify("Suche in WoW-Forever-Datenbank …");
     try{
-      const url=API+"?q="+encodeURIComponent(q.slice(0,64))+"&page=1&per_page=50";
+      const byId=/^[0-9]{1,8}$/.test(q);
+      const url=byId?API+encodeURIComponent(q):API+"?q="+encodeURIComponent(q.slice(0,64))+"&page=1&per_page=50";
       const response=await fetch(url,{mode:"cors",credentials:"omit"});
       if(response.status===429)throw new Error("API-Limit erreicht. Bitte später erneut suchen.");
       if(!response.ok)throw new Error("Die externe Suche antwortet mit HTTP "+response.status+".");
-      const remote=listRecords(await response.json()).map(fromAPI).filter(Boolean);
+      const payload=await response.json();
+      const records=byId?[payload.data&&payload.data.id?payload.data:payload]:listRecords(payload);
+      const remote=records.map(fromAPI).filter(Boolean);
       await putMany("items",remote);
       remote.forEach(it=>items.set(it.key,it));
       const union=new Map([...cached,...remote].map(x=>[x.key,x]));
